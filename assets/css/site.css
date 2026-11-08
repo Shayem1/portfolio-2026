@@ -93,6 +93,7 @@ p { margin: .55rem 0; max-width: 56ch; }
   border: 1px solid var(--rule); border-radius: 3px; padding: 1rem 1.1rem;
   background: #eef0f3; display: flex; flex-direction: column; gap: .45rem;
 }
+.card .status { align-self: flex-start; }
 .card h3 a { color: var(--ink); }
 .card h3 a:hover { color: var(--teal); text-decoration: none; }
 .card .small { margin: 0; }
