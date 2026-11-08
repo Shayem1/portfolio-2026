@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../index.html">Shayem Quazi</a>
+  <nav>
+    <a href="index.html" aria-current="page">projects</a>
+    <a href="../goals.html">goals &amp; evidence</a>
+    <a href="../about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow">all projects · evidence-linked</p>
+  <h1>Projects</h1>
+  <p class="claim">Status chips are honest: <span class="status live">live</span> means running in production, <span class="status alpha">alpha</span> means functional but not release-hardened, <span class="status retired">retired</span> means deliberately superseded.</p>
+
+  <div class="cards">
+    <div class="card">
+      <span class="status live">LIVE · CI green</span>
+      <h3><a href="scanner-for-ibma.html">Scanner-for-IBMA</a></h3>
+      <p class="small">Goal 3 + 4 · GitHub Actions pipeline, smoke-tested data path, published IDS policy.</p>
+    </div>
+    <div class="card">
+      <span class="status alpha">ALPHA · self-built stack</span>
+      <h3><a href="strata-agent-stack.html">Strata agent stack</a></h3>
+      <p class="small">Goal 4 · local LLM serving + CPU media toolkits, all benchmarked in-repo.</p>
+    </div>
+    <div class="card">
+      <span class="status live">LIVE</span>
+      <h3><a href="ibma-assessment.html">IBMA Assessment</a></h3>
+      <p class="small">Goal 2 + 3 · deployed app with JWT auth, Azure AD app-only access, weighted task grading.</p>
+    </div>
+    <div class="card">
+      <span class="status alpha">ALPHA · tagged releases</span>
+      <h3><a href="panoviewer.html">Panoviewer</a></h3>
+      <p class="small">Goal 3 · dev/main branch discipline, v1.0.0-alpha tags, tested to 1.3 GPixel images.</p>
+    </div>
+    <div class="card">
+      <span class="status live">Dockerised</span>
+      <h3><a href="translator-api.html">Translator API</a></h3>
+      <p class="small">Goal 3 + 4 · the plan's Docker requirement, shipped as Dockerfile + compose service.</p>
+    </div>
+    <div class="card">
+      <span class="status retired">RETIRED · superseded 2026</span>
+      <h3><a href="lm-pdf-editor.html">LM-PDF Editor</a></h3>
+      <p class="small">Goal 4-era tool (Oct 2025). Kept as evidence of a capability gap it closed — and why it was allowed to retire.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>

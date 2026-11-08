@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="index.html">Shayem Quazi</a>
+  <nav>
+    <a href="projects/index.html">projects</a>
+    <a href="goals.html">goals &amp; evidence</a>
+    <a href="about.html" aria-current="page">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow">Shayem Quazi · Sydney · B. Cybersecurity (C10471)</p>
+  <h1>Skills, rated before and after</h1>
+  <p class="claim">Assessment 1 rated every skill against SFIA. Here is the same table after the builds — self-rated, with each delta tied to evidence.</p>
+
+  <table class="ledger">
+    <tr><th>Skill (from the Assmt 1 audit)</th><th>Then</th><th>Now</th><th>What moved it</th></tr>
+    <tr><td>Understanding of ethical principles, esp. Indigenous communities</td><td>SFIA 3</td><td>3 → <em>authoring, not just applying</em></td><td>Authored two IDS/ethics policies adopted by live projects; IDS-based essay graded (marker comment on Indigenous linkage)</td></tr>
+    <tr><td>Foundational cybersecurity</td><td>SFIA 4</td><td>4 (consolidated)</td><td>Two completed subjects; production auth design (JWT + Azure AD app-only) in IBMA app</td></tr>
+    <tr><td>Software development tools</td><td>SFIA 4</td><td>4 → 5 target</td><td>Authored a GitHub Actions pipeline (first run green), branch/tag release discipline, Docker stacks, static deploys</td></tr>
+    <tr><td>Azure / Intune / endpoint management</td><td>SFIA 2</td><td>2 → 3</td><td>Azure AD app-only credential designed into a live multi-tenant app; certificate-trust deployment pipeline</td></tr>
+    <tr><td>Creating and using APIs · agents · LLM workflows · "n8n or equivalent"</td><td><strong>SFIA 1</strong> ("able to just follow directions")</td><td><strong>3</strong></td><td>The semester's biggest delta: authored MCP tool doors, local LLM serving stack, containerised API service — each with tests and benchmarks (<a href="projects/strata-agent-stack.html">Strata page</a>)</td></tr>
+    <tr><td>Designing databases</td><td>SFIA 1</td><td>2</td><td>SQLite asset store with dedupe schema and calibrated similarity tiers; formal schema design is the stated next goal (post Database Fundamentals)</td></tr>
+    <tr><td>Code &amp; workflow optimisation</td><td>SFIA 4</td><td>4+</td><td>Measured pipeline work: cache benches (−9.6…−25.4 %), RTF-benchmarked CPU audio tools replacing brute-force passes</td></tr>
+    <tr><td>Hardware knowledge · terminals</td><td>SFIA 3</td><td>3+</td><td>GPU-inference platform builds (HIP gfx1201), Zen-4 SIMD audio builds, cross-language diarization model selection</td></tr>
+  </table>
+  <p class="small">"Now" ratings are self-assessments with cited evidence; SFIA's own convention is that a level is confirmed by someone else's review — offered for the marker's challenge.</p>
+
+  <section>
+    <h2>How this portfolio is built</h2>
+    <p>Static HTML/CSS — no frameworks, no build step — deployable to GitHub Pages or Cloudflare Pages as committed. Every number on the site traces to a test run, benchmark log, manifest or live system; private repositories are linked by access-on-request, with the load-bearing proof embedded on-site.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>GitHub: <a href="https://github.com/Shayem1">github.com/Shayem1</a> · for assessment questions: via UTS Canvas (43030).</p>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>

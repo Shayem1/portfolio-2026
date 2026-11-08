@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IBMA Assessment — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../index.html">Shayem Quazi</a>
+  <nav>
+    <a href="index.html">projects</a>
+    <a href="../goals.html">goals &amp; evidence</a>
+    <a href="../about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><span class="status live">in production</span> &nbsp; React · Vite · Netlify Functions · Microsoft Graph</p>
+  <h1>IBMA Assessment</h1>
+  <p class="claim">A grading web app running for an accredited Australian college — real users, real auth, real data boundary.</p>
+
+  <div class="bench">
+    <div class="m"><span class="n">JWT</span><span class="l">session auth for students + admins</span></div>
+    <div class="m"><span class="n">20/40/40</span><span class="l">example task weighting (3-task unit)</span></div>
+    <div class="m"><span class="n">app-only</span><span class="l">Azure AD credential, least privilege</span></div>
+    <div class="m"><span class="n">1</span><span class="l">SharePoint folder holds all data</span></div>
+  </div>
+
+  <section>
+    <h2>What it does</h2>
+    <ul class="feat">
+      <li>Multiple-choice quizzes (task 1) plus written tasks with long/short answers, editable tables and optional file uploads (tasks 2+).</li>
+      <li>Unit progress is a weighted blend across tasks (task 1 = <code>1/(2n−1)</code>, each later task = <code>2/(2n−1)</code>).</li>
+      <li>Server-side grading and question shuffling (15-question subsets); saved-state and lock handling per attempt.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Architecture</h2>
+    <pre class="arch">Browser (React SPA)
+   |  HTTPS  (Bearer JWT)
+   v
+Netlify Functions (Node)
+   +-- login / admin-login   -> reads logins from SharePoint, returns JWT
+   +-- get-questions         -> shuffled MCQ subset / written task (answers stripped)
+   +-- submit                -> grades task 1, writes attempt-N.json, returns feedback
+   v
+Microsoft Graph (Azure AD app-only credential) -> SharePoint folder (all app data)</pre>
+    <p class="small">For an accredited RTO (National Provider 41025) this is also a data-protection exercise: app-only Graph access, answers never sent to the client for written tasks, and record handling governed by the same IDS/ethics framework published on <a href="scanner-for-ibma.html">Scanner-for-IBMA</a>.</p>
+  </section>
+
+  <section class="align">
+    <h2>Learning-plan alignment</h2>
+    <p class="small">Goal 2 (access control, endpoint/identity security in practice) · Goal 3 (deployed web systems, Netlify, licensed repo practice). <a href="../goals.html">Full mapping →</a></p>
+  </section>
+
+  <section>
+    <h2>Evidence</h2>
+    <ul class="feat">
+      <li>Client context (public): <a href="https://ibma.edu.au">ibma.edu.au</a> — accredited college, ACN 169 079 896, provider 41025</li>
+      <li>App repository and the deployed assessment URL: private — access demonstrated to the marker on request</li>
+      <li>Architecture write-up above is taken verbatim from the repo README</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>

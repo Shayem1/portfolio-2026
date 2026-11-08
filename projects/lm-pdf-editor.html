@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LM-PDF Editor — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../index.html">Shayem Quazi</a>
+  <nav>
+    <a href="index.html">projects</a>
+    <a href="../goals.html">goals &amp; evidence</a>
+    <a href="../about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><span class="status retired">retired</span> &nbsp; Python · local LLM pipeline · MIT · 2025</p>
+  <h1>LM-PDF Editor</h1>
+  <p class="claim">A tool that closed a capability gap — and was deliberately allowed to die when the gap closed underneath it.</p>
+
+  <div class="bench">
+    <div class="m"><span class="n">Oct<small> 2025</small></span><span class="l">built: local-LLM document authoring</span></div>
+    <div class="m"><span class="n">4–6<small> mo</small></span><span class="l">until cloud APIs absorbed the capability</span></div>
+    <div class="m"><span class="n">MIT</span><span class="l">licensed, public-era artifact (repo private)</span></div>
+    <div class="m"><span class="n">2026</span><span class="l">retired — superseded, not abandoned</span></div>
+  </div>
+
+  <section>
+    <h2>The problem, in its time</h2>
+    <p>In October 2025, generating a <em>presentable document</em> from a language model was a solved problem for no one. In my judgement at the time, frontier cloud models could barely format a table or choose a font — their "documents" were notepad output with slightly cleaner spacing. My local model was no better. Real workplace deliverables (training workbooks like BSBOPS501, appraisal reports) were out of reach for any LLM pipeline.</p>
+    <p>LM-PDF Editor closed that gap: a prompts-and-utils pipeline in which a local model generated the content and the tool imposed professional structure — producing visually publication-quality PDFs and Word-compatible files that a workplace could actually deliver. For its window, it was a leading-class proprietary application: nothing on the market did document authoring from a model's prose well.</p>
+  </section>
+
+  <section>
+    <h2>Honest trade-offs it carried</h2>
+    <ul class="feat">
+      <li>Output was <strong>lossy</strong> by design: formatted output looked great but was awkward to edit afterwards — formatting was baked, not semantic. In 2025 that trade bought delivery-visual quality nobody else could get; by 2026 it was unacceptable.</li>
+      <li>An ethical disclaimer was published in the README from day one: <em>"The output is AI-generated and may not be accurate or verifiable. Users are responsible for the ethical and legal use of generated content. Do not use this tool to create fake documents, impersonate individuals, or deceive others."</em></li>
+      <li>It ran entirely on a local model — workplace documents never left the machine.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Why it retired</h2>
+    <p>Around four to six months after building it, the cloud model APIs gained native document authoring: proper editable formatting, tables, styles — an ordinary coding agent (no specialised tools) could now produce a better document, faster, with validation checks and live references. The capability the tool existed to compensate for stopped being special. I retired it rather than maintain a solution to a problem that no longer exists.</p>
+    <p><strong>What it proves for this portfolio:</strong> the ability to recognise a capability gap, build a production tool into it, name its trade-offs honestly, and get out of its way when the field catches up. The durable parts — agent pipelines, validation habits, self-hosted data policy — moved into the work on <a href="strata-agent-stack.html">the Strata agent stack</a>.</p>
+  </section>
+
+  <section class="align">
+    <h2>Learning-plan alignment</h2>
+    <p class="small">Goal 4-era capability evidence (LLM application pipelines) · Goal 1 (published AI-use disclaimer before it was fashionable). <a href="../goals.html">Full mapping →</a></p>
+  </section>
+
+  <section>
+    <h2>Evidence</h2>
+    <ul class="feat">
+      <li>Project preserved locally (<code>Documents\GitHub\LM-PDF-editor\</code>) with README disclaimer, licence and sample generated outputs; repo (<code>Shayem1/LM-PDF-editor</code>) is private — available to the marker on request</li>
+      <li>Sample artifacts: BSBOPS501 workbook renders produced by the pipeline</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>

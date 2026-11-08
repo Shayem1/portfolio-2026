@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strata agent stack — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../index.html">Shayem Quazi</a>
+  <nav>
+    <a href="index.html">projects</a>
+    <a href="../goals.html">goals &amp; evidence</a>
+    <a href="../about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><span class="status alpha">alpha</span> &nbsp; Python · C++/HIP · ONNX · MCP · AMD gfx1201</p>
+  <h1>Strata agent stack</h1>
+  <p class="claim">My learning plan asked for one autonomous workflow. What got built instead was the ground layer every such workflow needs: a local LLM server plus CPU media toolkits that give any agent non-text context.</p>
+
+  <div class="bench">
+    <div class="m"><span class="n">0.065<small> RTF</small></span><span class="l">whisper base: 11 s audio → 0.7 s</span></div>
+    <div class="m"><span class="n">0.04<small> RTF</small></span><span class="l">diarization: exact 4/4 turns vs published reference</span></div>
+    <div class="m"><span class="n">235<small> ms</small></span><span class="l">pHash scan over 200k stored images</span></div>
+    <div class="m"><span class="n">18<small> ms</small></span><span class="l">text→image query (CLIP text tower)</span></div>
+    <div class="m"><span class="n">1.1<small> s</small></span><span class="l">motion-keyframe selection, 300-frame probe</span></div>
+    <div class="m"><span class="n">−25.4<small> %</small></span><span class="l">context re-read, best interleaved-bench result</span></div>
+  </div>
+
+  <section>
+    <h2>Why it exists</h2>
+    <p>Goal 4 of the learning plan specified a narrow system: "an autonomous workflow that will scan and read spreadsheets, text files, and images … and return routinely updated database", using n8n "or equivalent". That workflow was built (<a href="scanner-for-ibma.html">Scanner-for-IBMA</a>). But instead of importing an off-the-shelf orchestrator, everything it required was engineered from scratch on this machine — inference serving, audio, diarization, image search, video grounding — and each piece was kept as a general tool any agent can use through MCP tool doors.</p>
+    <p class="small">Nothing here was imported as a ready-made toolkit: every component was authored, calibrated and benchmarked locally. Generic MCP servers now exist publicly; this stack differs by being local-first, calibrated to real data, and measured — every number on this page comes from a local test log or manifest.</p>
+  </section>
+
+  <section>
+    <h2>Components (all self-built on this machine)</h2>
+    <ul class="feat">
+      <li><strong>Serving engine</strong> — Strata: quantised-LLM inference on an RX 9070 XT (HIP gfx1201), OpenAI-compatible doors (/v1/chat/completions, /v1/audio/transcriptions), vision reader, geometric prompt-cache checkpoints and conversation-cache slots (bench: −9.6 % to −25.4 % re-read cost).</li>
+      <li><strong>Audio grounding</strong> — whisper.cpp built from source with Zen 4 SIMD kernels (AVX512/VBMI/VNNI/BF16); one pass per recording, timestamp manifests written per transcription.</li>
+      <li><strong>Speaker diarization</strong> — pure-CPU sherpa-onnx pipeline; segmentation + speaker embeddings; reproduces the published reference split exactly (4/4 turns, RTF 0.04); language-robust embedding model chosen after cross-language failure testing.</li>
+      <li><strong>Image store</strong> — Tier 1: 64-bit DCT perceptual hash with SHA-256 dedupe; Tier 2: CLIP/SigLIP embedding search in SQLite with calibrated thresholds (near-duplicates ≥0.95, related scenes 0.5–0.7, cross-domain ≤0.65); Tier 2b: text→image retrieval via pruned CLIP text tower (dead-end logged: SigLIP text tower misaligns — documented, not hidden).</li>
+      <li><strong>Video grounding</strong> — motion-adaptive keyframes (tile-diff thresholds with codec-noise suppression, NMS, coverage skeleton) joined to diarization turns by timestamp, so a frame carries <em>who was speaking when</em>.</li>
+      <li><strong>Agent surface</strong> — every capability exposed through MCP tool doors and consumed daily by an OpenCode agent workflow (including the one that helped assemble this portfolio).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How the pieces join</h2>
+    <pre class="arch">video/audio file
+   |  motion keyframes + diarized speaker turns (CPU)
+   v
+frame manifest {time, score, jpeg, speaker}   ->   agent reads frames + transcript by time
+   |
+image store (pHash dedupe -> embedding ranking)  ->  "find me every shot of X, across formats"
+   |
+Strata /v1 doors  <-  any OpenAI-compatible client or MCP door</pre>
+  </section>
+
+  <section class="align">
+    <h2>Learning-plan alignment</h2>
+    <p class="small">Goal 4 (custom LLMs, optimized databases, autonomous systems — plan lines 57–83) · Goal 1 (data never leaves the machine; policies govern the stores). <a href="../goals.html">Full mapping →</a></p>
+  </section>
+
+  <section>
+    <h2>Evidence</h2>
+    <ul class="feat">
+      <li>Build logs, benchmarks and calibration notes live in this machine's engineering docs (<code>D:\Strata\docs\DETAILS.md</code>, <code>D:\Strata\image_search\NOTES.md</code>) — available to the marker as exports.</li>
+      <li>Test suites: image store 16/16, video reader 7/7, diarization chain checks, 27 endpoint tests for the audio door.</li>
+      <li>Privacy stance: architecture is published; model weights, configs and stored assets stay on the local machine.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>

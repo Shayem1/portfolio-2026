@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Translator API — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../index.html">Shayem Quazi</a>
+  <nav>
+    <a href="index.html">projects</a>
+    <a href="../goals.html">goals &amp; evidence</a>
+    <a href="../about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><span class="status live">dockerised</span> &nbsp; Python webapp · Docker Compose · model-backed</p>
+  <h1>Translator API</h1>
+  <p class="claim">The learning plan's Docker requirement, shipped as a containerised service rather than a tutorial exercise.</p>
+
+  <div class="bench">
+    <div class="m"><span class="n">2</span><span class="l">container layers: webapp + compose orchestration</span></div>
+    <div class="m"><span class="n">1</span><span class="l">command to run the whole stack (<code>docker compose up</code>)</span></div>
+    <div class="m"><span class="n">.env</span><span class="l">config kept out of the image (env/ + .env.example pattern)</span></div>
+  </div>
+
+  <section>
+    <h2>What it does</h2>
+    <ul class="feat">
+      <li>Translation service exposed through a webapp API, model-backed.</li>
+      <li>Webapp ships its own <code>Dockerfile</code>; <code>docker-compose.yml</code> wires the stack.</li>
+      <li>Docs folder preserves the build conversation history — how the service evolved, not just the final state.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Why it counts as Goal 3 evidence</h2>
+    <p>The Task 1 plan listed "Utilising docker" and "Introduction to docker, how to use, how to setup" as open skill gaps. This project closed them by shipping a real compose stack on this machine (<code>AI playground\Translator API\webapp\Dockerfile</code> + <code>docker-compose.yml</code>) — later reused as the packaging pattern for the media toolkits.</p>
+  </section>
+
+  <section class="align">
+    <h2>Learning-plan alignment</h2>
+    <p class="small">Goal 3 (Docker — plan lines 45, 51, 66) · Goal 4 (API creation/moderation for agent workflows). <a href="../goals.html">Full mapping →</a></p>
+  </section>
+
+  <section>
+    <h2>Evidence</h2>
+    <ul class="feat">
+      <li>Repo present locally on this machine; container build reproducible — shared with the marker on request</li>
+      <li><code>docs/conversation-history.md</code> inside the project records the build decisions</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>

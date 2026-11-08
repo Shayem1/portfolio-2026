@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panoviewer — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../index.html">Shayem Quazi</a>
+  <nav>
+    <a href="index.html">projects</a>
+    <a href="../goals.html">goals &amp; evidence</a>
+    <a href="../about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><span class="status alpha">alpha</span> &nbsp; Python · Pillow · WebGL · Cloudflare Pages-ready</p>
+  <h1>Panoviewer</h1>
+  <p class="claim">A local-first viewer for panoramas so large they break normal image pipelines — with the release discipline of a real project.</p>
+
+  <div class="bench">
+    <div class="m"><span class="n">50,956<small>×</small>25,478</span><span class="l">largest image tested (~1.3 GPixel)</span></div>
+    <div class="m"><span class="n">100k<small>×</small>50k</span><span class="l">design headroom target</span></div>
+    <div class="m"><span class="n">0</span><span class="l">build steps needed to deploy</span></div>
+    <div class="m"><span class="n">2</span><span class="l">tags: v1.0.0-alpha / -dev</span></div>
+  </div>
+
+  <section>
+    <h2>What it does</h2>
+    <ul class="feat">
+      <li>Reprojects a giant equirectangular photo into a cube-face tile pyramid (pure Pillow engine; optional fast Hugin/nona engine) so browsers stream only what is visible.</li>
+      <li>Static output under <code>webroot/</code> — deployable to Cloudflare Pages or any static host as-is, no build step.</li>
+      <li>Every view is a shareable deep link: yaw/pitch/fov live in the address bar.</li>
+      <li>Works on desktop and phones (WebGL).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Why it counts as Goal 3 evidence</h2>
+    <p>This is the software-development-tools goal made visible: a <code>dev</code>/<code>main</code> branch split where <code>main</code> carries only what is needed to run and <code>dev</code> carries tests, plans and research tooling; semantic tags for both trees; MIT licence; <code>.gitattributes</code>/<code>.gitignore</code> hygiene; and a documented dependency policy (vendored viewer libs can be re-generated, not committed).</p>
+    <pre class="arch">source panorama (1.3 GPixel)
+   |  scripts/tile_pano.py  (Python tiler, 2 engines)
+   v
+webroot/ tile pyramid + static viewer  ->  Cloudflare Pages / python http.server</pre>
+  </section>
+
+  <section class="align">
+    <h2>Learning-plan alignment</h2>
+    <p class="small">Goal 3 (Git collaboration, releases, deployment) · feeds the <a href="https://github.com/Shayem1/Skyworksdomain">Skyworksdomain</a> portfolio pages. <a href="../goals.html">Full mapping →</a></p>
+  </section>
+
+  <section>
+    <h2>Evidence</h2>
+    <ul class="feat">
+      <li><a href="https://github.com/Shayem1/Panorama_Viewer_2026">Public repository</a> — MIT licence; <code>dev</code> tree carries tests/plan docs, <code>main</code> the runnable subset</li>
+      <li>Validation ships with the repo: <code>check_layout.py</code> (per-level tile file checks) and <code>smoke_serve.py</code> (boots the server and asserts key URLs return 200)</li>
+      <li>End-to-end verification recorded in the README: three sample sizes — rendering, first-paint from preview strip, zero failed tile requests, seam/pole continuity, phone touch + deep-link write-back</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>

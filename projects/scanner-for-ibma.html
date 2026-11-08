@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scanner-for-IBMA — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../index.html">Shayem Quazi</a>
+  <nav>
+    <a href="index.html">projects</a>
+    <a href="../goals.html">goals &amp; evidence</a>
+    <a href="../about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><span class="status live">live</span> &nbsp; Python · Selenium · Excel pipeline · GitHub Actions</p>
+  <h1>Scanner-for-IBMA</h1>
+  <p class="claim">The autonomous workflow my learning plan asked for — built, then given a CI pipeline it now runs itself.</p>
+
+  <div class="bench">
+    <div class="m"><span class="n">5<small> min</small></span><span class="l">scheduled auto-save cycle</span></div>
+    <div class="m"><span class="n">1239</span><span class="l">lines of app logic (main.py)</span></div>
+    <div class="m"><span class="n">16<small> s</small></span><span class="l">CI #1 green, first push</span></div>
+    <div class="m"><span class="n">3<small>/3</small></span><span class="l">CI checks pass (syntax, deps, pipeline test)</span></div>
+  </div>
+
+  <section>
+    <h2>What it does</h2>
+    <ul class="feat">
+      <li>Scans contact and attendance data from spreadsheets and authenticated web systems into day-keyed, ID-indexed workbooks (e.g. <span class="small">Friday 14-08-2026.xlsx</span>).</li>
+      <li>Re-saves on a fixed 5-minute cycle, so the workbook is a live register, not a snapshot.</li>
+      <li>Crash-safe by design: on restart it merges into the existing workbook instead of overwriting — no data lost when the machine or session dies mid-run.</li>
+      <li><code>recover.py</code> rebuilds any workbook from its weekday text exports — verified end-to-end by the CI smoke test.</li>
+      <li>Runs fullscreen as an operator dashboard with live ID entry.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How it is built</h2>
+    <pre class="arch">Browser session (IBMA SharePoint, authenticated)
+   |  Selenium reads objects
+   v
+main.py (customtkinter GUI) --5-min cycle--> day workbook .xlsx
+   |                                          ^
+   +-- crash recovery: merge() ---------------+
+   +-- recover.py: weekday .txt -> rebuilt .xlsx
+                |
+   GitHub Actions CI: compileall -> import check -> smoke test -> lint</pre>
+    <p class="small">Data hygiene is structural, not promised: <code>.gitignore</code> blocks <code>*.txt</code>, <code>*.xlsx</code> and <code>/memory/</code>, so student and contact records can never reach the repository. Individuals travel as <code>ContactID-*</code> pseudonyms (APP 2 / APP 11).</p>
+  </section>
+
+  <section>
+    <h2>Governance</h2>
+    <p>First project governed under a published IDS &amp; ethics policy — <code>docs/ids-ethics-policy.md</code> (Indigenous Data Sovereignty, CARE principles, Privacy Act 1988 controls mapped one-to-one against implemented features). Full text is in the private repo and mirrored in the assessment portfolio export.</p>
+  </section>
+
+  <section class="align">
+    <h2>Learning-plan alignment</h2>
+    <p class="small">Goal 4 (autonomous scan→database workflow — the plan's own capstone, verbatim) · Goal 3 (Git, CI, tooling) · Goal 1 (governance artifact). <a href="../goals.html">Full mapping →</a></p>
+  </section>
+
+  <section>
+    <h2>Evidence</h2>
+    <p class="small">Repository access: <em>private</em> — grant/view access provided to the marker on request (Canvas message). The load-bearing proof is embedded on this page instead of behind a login.</p>
+    <figure style="margin:1rem 0 0;">
+      <img src="../assets/media/ci-proof.png" alt="GitHub Actions page for Scanner-for-IBMA showing CI run #1 green in 16 seconds on commit 14c48d7 (pushed by Shayem1) on the main branch, plus a green Dependabot dependency-graph update" style="max-width:100%;border:1px solid var(--rule);">
+      <figcaption class="small">CI run #1 — green in 16 s on the first push (<code>14c48d7</code>, <code>main</code>). Checks: syntax compile, dependency imports, pipeline smoke test, lint report.</figcaption>
+    </figure>
+    <ul class="feat">
+      <li>Commits <code>2484726</code> (CI pipeline) and <code>14c48d7</code> (IDS policy) — hashes verifiable in the private repo on request</li>
+      <li><code>ci/smoke_test.py</code> drives the real txt→xlsx pipeline and asserts header + codes <code>A101/A202/A303</code> — demo fixture data only, no real records</li>
+      <li>Policy text quoted on this page below and mirrored in the assessment portfolio export</li>
+    </ul>
+    <blockquote style="border-left:3px solid var(--copper); margin:1rem 0 0; padding:.6rem 1rem; font-size:.9rem; color:var(--ink-2);">
+      “Individuals are handled as <code>ContactID-*</code> codes; the code→person mapping stays inside IBMA's own systems and is never duplicated by this tool.” — <em>docs/ids-ethics-policy.md</em>, §4
+    </blockquote>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+/* portfolio-2026 — "engineered ledger paper" system
+   tokens: slate-paper / graphite ink / copper + signal-teal accents
+   display: Space Grotesk · body: Public Sans · measurement: IBM Plex Mono */
+
+:root {
+  --paper: #e7e9ec;
+  --paper-2: #dce0e6;
+  --ink: #151a20;
+  --ink-2: #49535e;
+  --rule: #b8c1cb;
+  --copper: #b25a2b;
+  --teal: #1e6b60;
+  --teal-soft: #d7e6e2;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Consolas", monospace;
+  --max: 60rem;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+
+/* ---------- header ---------- */
+.site-head {
+  display: flex; align-items: baseline; gap: 1.25rem; flex-wrap: wrap;
+  max-width: var(--max); margin: 0 auto; padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.brand {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  color: var(--ink); letter-spacing: .01em;
+}
+.brand:hover { text-decoration: none; }
+.site-head nav { display: flex; gap: 1.1rem; margin-left: auto; flex-wrap: wrap; }
+.site-head nav a { font-size: .86rem; color: var(--ink-2); text-transform: lowercase; }
+.site-head nav a[aria-current="page"] { color: var(--copper); }
+
+/* ---------- layout ---------- */
+main { max-width: var(--max); margin: 0 auto; padding: 2.2rem 1.5rem 3rem; }
+section { margin-top: 2.4rem; }
+h1 {
+  font-family: var(--font-display); font-weight: 700; font-size: 2.3rem;
+  line-height: 1.12; letter-spacing: -.015em; margin: .35rem 0 .6rem;
+}
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; margin: 0 0 .8rem; }
+h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; margin: 0 0 .35rem; }
+p { margin: .55rem 0; max-width: 56ch; }
+
+.eyebrow {
+  font-family: var(--font-mono); font-size: .74rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-2); margin: 0;
+}
+.claim { font-size: 1.14rem; color: var(--ink); max-width: 46ch; }
+.small { font-size: .86rem; color: var(--ink-2); }
+
+/* ---------- status chips ---------- */
+.status {
+  display: inline-block; font-family: var(--font-mono); font-size: .68rem;
+  letter-spacing: .12em; padding: .18rem .5rem; border: 1px solid var(--rule);
+  border-radius: 2px; background: var(--paper-2); color: var(--ink-2);
+}
+.status.live    { color: var(--teal); border-color: var(--teal); background: var(--teal-soft); }
+.status.alpha   { color: var(--copper); border-color: var(--copper); background: #f2e2d7; }
+.status.retired { text-decoration: line-through 1px var(--ink-2); color: var(--ink-2); }
+
+/* ---------- bench strip (signature) ---------- */
+.bench {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: 1rem; border-top: 2px solid var(--ink); margin-top: 1.4rem;
+}
+.bench .m { padding: .85rem .2rem 0; border-top: none; }
+.bench .n {
+  font-family: var(--font-mono); font-weight: 600; font-size: 1.62rem;
+  font-variant-numeric: tabular-nums; letter-spacing: -.02em; color: var(--ink);
+}
+.bench .n small { font-size: .82em; color: var(--copper); }
+.bench .l { display: block; margin-top: .3rem; font-size: .8rem; color: var(--ink-2); max-width: 16ch; }
+
+/* ---------- cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.1rem; margin-top: 1.2rem; }
+.card {
+  border: 1px solid var(--rule); border-radius: 3px; padding: 1rem 1.1rem;
+  background: #eef0f3; display: flex; flex-direction: column; gap: .45rem;
+}
+.card h3 a { color: var(--ink); }
+.card h3 a:hover { color: var(--teal); text-decoration: none; }
+.card .small { margin: 0; }
+
+/* ---------- feature lists ---------- */
+ul.feat { list-style: none; padding: 0; margin: .4rem 0; }
+ul.feat li { padding: .35rem 0 .35rem 1.15rem; position: relative; border-bottom: 1px solid var(--rule); }
+ul.feat li:last-child { border-bottom: none; }
+ul.feat li::before { content: "›"; position: absolute; left: .15rem; color: var(--copper); font-weight: 700; }
+
+/* ---------- architecture blocks ---------- */
+pre.arch {
+  font-family: var(--font-mono); font-size: .8rem; line-height: 1.5;
+  background: #f2f4f6; border: 1px solid var(--rule); border-left: 3px solid var(--teal);
+  padding: .8rem 1rem; overflow-x: auto; white-space: pre;
+}
+
+/* ---------- tables ---------- */
+table.ledger { border-collapse: collapse; width: 100%; font-size: .88rem; margin-top: 1rem; }
+table.ledger th {
+  text-align: left; font-family: var(--font-mono); font-size: .7rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2);
+  border-bottom: 2px solid var(--ink); padding: .5rem .6rem;
+}
+table.ledger td { border-bottom: 1px solid var(--rule); padding: .6rem; vertical-align: top; }
+table.ledger tr:last-child td { border-bottom: none; }
+
+/* ---------- footer ---------- */
+.site-foot {
+  max-width: var(--max); margin: 2rem auto 0; padding: 1.1rem 1.5rem 2rem;
+  border-top: 1px solid var(--rule); font-size: .8rem; color: var(--ink-2);
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 1.7rem; }
+  .bench { grid-template-columns: repeat(2, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
