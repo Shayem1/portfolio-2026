@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>translator-api</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script src="../assets/js/theme.js"></script>
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="../index.html">Shayem Quazi</a>
+  <nav>
+    <a href="../index.html">Home</a>
+<a href="index.html">Projects</a>
+    <a href="../about.html">About</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><span class="status retired">retired 2026 · superseded</span></p>
+  <p class="stacktags"><span class="tag">Docker Compose</span><span class="tag">vLLM</span><span class="tag">FastAPI</span><span class="tag">plan-era Sep 2026</span></p>
+  <h1>Translator API: the product that became a capability</h1>
+  <p class="claim">The plan-era answer to the Docker line: a fully local multilingual translation service. Its architecture stayed on record after the same requirement was delivered a better way, as a general agent capability.</p>
+
+  <div class="bench">
+    <div class="m"><span class="n">2</span><span class="l">container services in the proposed stack</span></div>
+    <div class="m"><span class="n">1<small>–</small>4</span><span class="l">output languages per utterance (designed)</span></div>
+    <div class="m"><span class="n">501</span><span class="l">translate endpoint shipped honestly unimplemented</span></div>
+    <div class="m"><span class="n">0</span><span class="l">cloud services called, either design</span></div>
+  </div>
+
+  <section>
+    <h2>What it was proposed to be</h2>
+    <div class="feat-list">
+      <details class="feat"><summary>The product spec</summary><p class="body">A LAN-reachable webapp: single- or multi-speaker, multi-language speech or text input converted into one to four output languages as text, with live correction in the UI. Everything local — model, inference, app — no cloud APIs at any point.</p></details>
+      <details class="feat"><summary>Engine choice driven by the workload</summary><p class="body">The design spec (approved 2026-09-30) chose vLLM over simpler local runners because the product fires up to four concurrent translation requests per phrase with strict structured output; continuous batching plus native structured-output backends (XGrammar/Outlines) win exactly that workload.</p></details>
+      <details class="feat"><summary>Two-service compose topology</summary><p class="body">A <code>vllm</code> service (CPU image by default, model mounted read-only, internal to the compose network only) and a <code>webapp</code> service (FastAPI, host port 8000 on the LAN, health-checked containers, <code>restart: unless-stopped</code>). A small <code>.env</code> contract (<code>VLLM_MODEL</code>, <code>VLLM_PORT</code>, <code>WEBAPP_PORT</code>) parameterised the whole stack.</p></details>
+      <details class="feat"><summary>A portability constraint written into the design</summary><p class="body">AMD GPU passthrough is unavailable on Windows Docker Desktop (WSL2), so the stack defaulted to CPU execution with documented, commented-out passthrough blocks for NVIDIA and AMD RDNA4 (Linux host) instead of pretending the constraint away.</p></details>
+      <details class="feat"><summary>Model strategy</summary><p class="body">Qwen3.5-4B as the reference family: GGUF reference weights kept for evaluation, with a vLLM-compatible quantisation dropped into the mounted <code>models/</code> directory at deployment. The vLLM service starts only once a model exists — a documented precondition, not a crash.</p></details>
+    </div>
+  </section>
+
+  <section>
+    <h2>What actually got built (deliberately scoped)</h2>
+    <div class="feat-list">
+      <details class="feat"><summary>The approved scope line: workspace + full Docker skeleton</summary><p class="body">Repo with README, compose stack, Dockerfile, env contract, git conventions, design spec and the route-analysis conversation history preserved in <code>docs/</code>. The product features (audio input, live correction, concurrent multi-language UI) were planned in later phases and are labelled as such in the spec.</p></details>
+      <details class="feat"><summary>An endpoint that says 501</summary><p class="body">The shipped FastAPI app exposes a real <code>/api/health</code> (it probes the inference service's model list and reports reachability) and a <code>/api/translate</code> that returns <code>501 not implemented</code>. The unimplemented part is honest in the API contract rather than faked; tests cover the shipped surface.</p></details>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why it was retired: the requirement, delivered as capability</h2>
+    <div class="feat-list">
+      <details class="feat"><summary>The Goal 4 build superseded it first</summary><p class="body">While the plan's capstone was being built, the same core requirement — multilingual speech in, text out, locally — was delivered by the CPU audio toolkits: whisper.cpp built for this CPU (Zen 4 SIMD kernels) translating any language to English in one pass at real-time factor 0.065, plus sherpa-onnx diarization separating speakers at 0.04 RTF. The planned product's central act already existed, faster and without containers.</p></details>
+      <details class="feat"><summary>What the project demanded was generalised, not siloed</summary><p class="body">The translator would have been one webapp serving one job over one port. The replacement exposes the same capability through MCP tool doors that any project or agent can call — it is already consumed as live audio transcript notes on the <a href="discord-bot.html">Discord bot</a> (PF12) and as diarized speech notes in video grounding on the <a href="strata-agent-stack.html">Strata stack</a> (PF2). One capability, many products, instead of one product doing one capability.</p></details>
+      <details class="feat"><summary>Retirement recorded, not hidden</summary><p class="body">The plan's Docker commitment was genuinely attempted; when a better delivery path emerged from a different goal, the pivot was documented rather than deleted. PF10 stays in the inventory as a retired item for exactly this reason: knowing a build is obsolete, and recording why, is a professional practice skill.</p></details>
+    </div>
+  </section>
+
+  <section>
+    <h2>Architecture: proposed vs what replaced it</h2>
+    <pre class="arch">PROPOSED (Sep 2026)
+LAN device -> FastAPI webapp :8000
+               | POST /api/translate (501: unimplemented at retirement)
+               v
+             vLLM (compose-internal, CPU default, Qwen3.5-4B mounted)
+               -> structured output, up to 4 concurrent language passes
+
+ACTUAL (Nov 2026, PF2)
+audio/video/text input -> MCP tool doors
+               | whisper.cpp (CPU, any language -> English, RTF 0.065)
+               | sherpa-onnx diarization (RTF 0.04, speaker-labeled)
+               v
+        any agent or project on the machine (PF12 bot, PF2 stack, agents)</pre>
+  </section>
+
+  <section>
+    <h2>Evidence</h2>
+    <ul class="feat">
+      <li>Repository exists locally with the full skeleton: <code>docker-compose.yml</code> (two services, healthchecks, commented GPU blocks), <code>webapp/Dockerfile</code>, <code>webapp/app.py</code> (health probe live, translate honestly 501), tests over the shipped surface</li>
+      <li>Design decisions preserved in-repo: dated spec ("Approach 1 approved"), route analysis in <code>docs/conversation-history.md</code>, README quickstart and env contract</li>
+      <li>The superseding capability is measured on the Strata stack page: RTF 0.065 transcription/translation, diarization at 0.04 reproducing a published reference split exactly</li>
+      <li>The supersession is stated in the report body (§2, Goal 3) rather than left for the marker to discover</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · portfolio</footer>
+</body>
+</html>
