@@ -79,6 +79,8 @@ p { margin: .55rem 0; max-width: 56ch; }
 .status.retired, .tag.retired { color: var(--ink-2); border-style: dashed; }
 .legend { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
 .tag { cursor: help; }
+.stacktags { display: flex; flex-wrap: wrap; gap: .45rem; margin: .55rem 0 0; }
+.stacktags .tag { cursor: default; }
 
 /* ---------- cards / tiles ---------- */
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.05rem; margin-top: 1.2rem; }
