@@ -9,6 +9,7 @@ Static site: plain HTML/CSS, **no build step**. Designed for GitHub Pages or Clo
 index.html                 landing: thesis + bench strip + project cards
 projects/                  one page per project (scanner, strata stack, ibma, panoviewer, translator, lm-pdf-editor)
 goals.html                 Assessment 1 plan line -> what was done -> proof  (the 15-pt linkage artifact)
+policies.html              both IDS/ethics policies in full (extracted from client-repo docs; own authorship — publishable)
 about.html                 SFIA ratings before/after the builds
 assets/css/site.css        design system ("engineered ledger paper")
 assets/media/              proof images + demo slots (see media/README.md)
@@ -33,10 +34,10 @@ python -m http.server 8000
 2. Framework preset: **None**; build command: *(empty)*; output directory: `/`.
 3. Deploy. (Same wrangler/Pages flow already used for the SNS-TAX and Panoviewer projects.)
 
-## Evidence policy (why some links say "on request")
+## Evidence policy (external-organisation boundary)
 
 - Public evidence is linked directly (e.g. the Panoviewer repo).
-- Private repositories are **not** hidden behind broken links: the load-bearing proof (CI screenshot, policy text, commit hashes, test names) is embedded on the project pages, and repo access is offered to the marker/employer on request.
+- Systems built **for external organisations** (Scanner-for-IBMA, IBMA Assessment, SkyWorks Domain): internal code and databases are **not shared, even on request** — the portfolio instead publishes the public-facing **data flow, the policies (own authorship, see `policies.html`), commit/CI artifacts and measured results**. Live-system access, where the client permits it, is arranged through the client.
 - No real student/contact records appear anywhere on this site; pipeline demos use fixture codes only (`A101/A202/A303`).
 
 ## Editing

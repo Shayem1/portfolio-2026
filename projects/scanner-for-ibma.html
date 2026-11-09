@@ -15,6 +15,7 @@
   <nav>
     <a href="index.html">projects</a>
     <a href="../goals.html">goals &amp; evidence</a>
+    <a href="../policies.html">policies</a>
     <a href="../about.html">about</a>
   </nav>
 </header>
@@ -58,7 +59,7 @@ main.py (customtkinter GUI) --5-min cycle--> day workbook .xlsx
 
   <section>
     <h2>Governance</h2>
-    <p>First project governed under a published IDS &amp; ethics policy — <code>docs/ids-ethics-policy.md</code> (Indigenous Data Sovereignty, CARE principles, Privacy Act 1988 controls mapped one-to-one against implemented features). Full text is in the private repo and mirrored in the assessment portfolio export.</p>
+    <p>First project governed under a published IDS &amp; ethics policy — full text on the <a href="../policies.html">policies page</a> (Indigenous Data Sovereignty, CARE principles, Privacy Act 1988 controls mapped one-to-one against implemented features), mirrored as <code>docs/ids-ethics-policy.md</code> in the project repo.</p>
   </section>
 
   <section class="align">
@@ -68,7 +69,7 @@ main.py (customtkinter GUI) --5-min cycle--> day workbook .xlsx
 
   <section>
     <h2>Evidence</h2>
-    <p class="small">Repository access: <em>private</em> — grant/view access provided to the marker on request (Canvas message). The load-bearing proof is embedded on this page instead of behind a login.</p>
+    <p class="small">This is a system built for an external organisation (IBMA). Internal code and databases are not published — the public-facing data flow, this policy, and the CI evidence below are the portfolio artifacts.</p>
     <figure style="margin:1rem 0 0;">
       <img src="../assets/media/ci-proof.png" alt="GitHub Actions page for Scanner-for-IBMA showing CI run #1 green in 16 seconds on commit 14c48d7 (pushed by Shayem1) on the main branch, plus a green Dependabot dependency-graph update" style="max-width:100%;border:1px solid var(--rule);">
       <figcaption class="small">CI run #1 — green in 16 s on the first push (<code>14c48d7</code>, <code>main</code>). Checks: syntax compile, dependency imports, pipeline smoke test, lint report.</figcaption>
@@ -76,7 +77,7 @@ main.py (customtkinter GUI) --5-min cycle--> day workbook .xlsx
     <ul class="feat">
       <li>Commits <code>2484726</code> (CI pipeline) and <code>14c48d7</code> (IDS policy) — hashes verifiable in the private repo on request</li>
       <li><code>ci/smoke_test.py</code> drives the real txt→xlsx pipeline and asserts header + codes <code>A101/A202/A303</code> — demo fixture data only, no real records</li>
-      <li>Policy text quoted on this page below and mirrored in the assessment portfolio export</li>
+      <li>Full policy text published on the <a href="../policies.html">policies page</a> of this portfolio (my own authorship — publishable even though the system belongs to the client organisation)</li>
     </ul>
     <blockquote style="border-left:3px solid var(--copper); margin:1rem 0 0; padding:.6rem 1rem; font-size:.9rem; color:var(--ink-2);">
       “Individuals are handled as <code>ContactID-*</code> codes; the code→person mapping stays inside IBMA's own systems and is never duplicated by this tool.” — <em>docs/ids-ethics-policy.md</em>, §4

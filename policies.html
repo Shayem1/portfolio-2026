@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IDS &amp; ethics policies — Shayem Quazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="index.html">Shayem Quazi</a>
+  <nav>
+    <a href="projects/index.html">projects</a>
+    <a href="goals.html">goals &amp; evidence</a>
+    <a href="policies.html" aria-current="page">policies</a>
+    <a href="about.html">about</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow"><span class="status">Goal 1 artifact</span> &nbsp; authored Nov 2026 · committed to project repos · extracted here in full</p>
+  <h1>Two governing policies, in full</h1>
+  <p class="claim">The learning plan promised "practise IDS policies for my existing projects". These are the two written and committed. The systems they govern belong to external organisations — the internal code and data stay private; the policies are mine to publish.</p>
+
+  <section>
+    <h2 id="scanner-policy">1 — Scanner-for-IBMA · data-processing ethics policy</h2>
+    <p class="small">Governs: autonomous student/contact data scanning for a Registered Training Organisation. v1.0 · 2026-11-08.</p>
+
+    <h3>Frameworks</h3>
+    <ul class="feat">
+      <li><strong>Indigenous Data Sovereignty (IDS):</strong> "ensuring that Indigenous people have a say in the data that is produced about them, how this data is shared and the purpose behind sharing the data" (Kukutai &amp; Taylor, <em>Indigenous Data Sovereignty: Towards An Agenda</em>, ANU Press, 2017). Recognised through UNDRIP (2007), Art. 3 (self-determination) and Art. 31 (cultural heritage, traditional knowledge).</li>
+      <li><strong>CARE Principles</strong> (Global Indigenous Data Alliance, 2019): Collective benefit · Authority to control · Responsibility · Ethics (Carroll et al., <em>Data Science Journal</em> 13:9, 2020).</li>
+      <li><strong>AIATSIS Code of Ethics</strong> (2020) + Research Ethics Framework: Indigenous self-determination, Indigenous leadership, impact and value, sustainability and accountability.</li>
+      <li><strong>ACS Code of Professional Ethics</strong> (2023): honesty, trustworthiness, respect.</li>
+      <li><strong>Privacy Act 1988 (Cth)</strong>: APP 2 (pseudonymity), APP 3 (collection), APP 6 (use/disclosure), APP 8 (cross-border), APP 11 (identifiers).</li>
+    </ul>
+
+    <h3>Data inventory &amp; implemented controls</h3>
+    <table class="ledger">
+      <tr><th>Principle</th><th>Control actually built into the project</th></tr>
+      <tr><td>Authority to control (CARE) / self-determination (AIATSIS)</td><td>All data belongs to the institution and its students; the tool is a processor, never a publisher. Output returns only to the institution's own systems or the operator's machine.</td></tr>
+      <tr><td>Data minimisation (APP 3)</td><td>The pipeline extracts only the contact-code column needed to build the ID-keyed workbook — not free-text personal detail.</td></tr>
+      <tr><td>Pseudonymisation (APP 2, APP 11)</td><td>Individuals travel as <code>ContactID-*</code> codes; the code→person mapping stays inside the institution's systems and is never duplicated by this tool.</td></tr>
+      <tr><td>Data residency / no cross-border transfer (APP 8)</td><td>Processing is local, single-operator. <code>*.txt</code>, <code>*.xlsx</code> and <code>/memory/</code> are git-ignored, verified — personal data structurally cannot reach any remote repository.</td></tr>
+      <tr><td>Integrity of student records</td><td>Post-crash behaviour is merge-not-overwrite (<code>merge()</code>); <code>recover.py</code> rebuilds workbooks from exports — verified by the CI smoke test.</td></tr>
+      <tr><td>Retention &amp; disposal</td><td>Exports are working copies; superseded exports are deleted at term end; backups never leave the operator's machine.</td></tr>
+      <tr><td>Access control</td><td>Runs only under the operator's own authenticated session; no credentials stored in the repository.</td></tr>
+    </table>
+
+    <h3>Indigenous-specific obligations</h3>
+    <ul class="feat">
+      <li>No Indigenous identity data is inferred or derived by the tool. Institutional records of Aboriginal/Torres Strait Islander status (e.g. support programs) are treated as sensitive: aggregated only, never exported free-text, never used beyond the program that collected them.</li>
+      <li>Datasets produced from community partnership programs remain under the partner community's control; publication requires free, prior and informed consent.</li>
+      <li>Generated reports use inclusive, non-deficit language; no student is named publicly; community-program terminology follows what the community itself uses.</li>
+      <li>Nothing published: any output requested for public reporting has Indigenous-related data removed or aggregated beyond identification first.</li>
+    </ul>
+
+    <h3>Accountability</h3>
+    <p class="small">Complaints: escalate to the institution, then the OAIC privacy complaint process. Annual review, with mandatory re-review whenever data sources, outputs or hosting change. Suspected disclosure of student data is assessed against the Notifiable Data Breaches scheme.</p>
+  </section>
+
+  <section>
+    <h2 id="skyworks-policy">2 — SkyWorks Domain · imagery-of-Country &amp; enquiry privacy policy</h2>
+    <p class="small">Governs: aerial/drone imagery services (Sydney + 300 km) and the static website's enquiry data. v1.0 · 2026-11-08.</p>
+
+    <h3>Why the ordering</h3>
+    <p>SkyWorks flies and publishes imagery of Country — including land that may hold cultural heritage, ceremonial sites or resting places. The highest ethical duty is to First Nations custodians; the second is visitors' personal information.</p>
+
+    <h3>Controls actually built into the project</h3>
+    <table class="ledger">
+      <tr><th>Principle</th><th>Control</th></tr>
+      <tr><td>Openness &amp; transparency (APP 1)</td><td>This published policy states exactly what is collected (enquiry emails only) and why (quotes, bookings).</td></tr>
+      <tr><td>Data minimisation (APP 3)</td><td>Collection limited to what a quote needs: name, contact, shoot location/scope. No marketing lists, no profiling.</td></tr>
+      <tr><td>Purpose limitation (APP 6)</td><td>Enquiry data is used only for the enquiry — never sold, shared or repurposed; retained for the quote-follow-up period, then deleted.</td></tr>
+      <tr><td>Data residency (APP 8)</td><td>Static self-hosted site; no third-party data processors, no cross-border transfer of visitor data.</td></tr>
+      <tr><td>No silent tracking</td><td>No analytics/cookie scripts exist in the committed site (verified by repository search). Adding any requires updating this policy first.</td></tr>
+      <tr><td>Honest representation (ACS 2023)</td><td>Portfolio imagery represents real work; AI-assisted imagery, if ever used, is labelled as such.</td></tr>
+    </table>
+
+    <h3>Imagery of Country — Indigenous obligations</h3>
+    <ul class="feat">
+      <li><strong>Pre-flight cultural screening:</strong> before low-altitude work anywhere, check for registered cultural heritage, sacred sites, ceremonial grounds, sorry-business or access restrictions; in doubt, ground-truth with the Traditional Owner group or land council and obtain permission <em>before</em> capture.</li>
+      <li><strong>Authority to control publication (CARE / UNDRIP Art. 31):</strong> cultural heritage, sites and ceremonial features visible in imagery are not published without custodian consent; out of caution, sensitive features are cropped, blurred or withheld by default.</li>
+      <li><strong>Takedown duty:</strong> any custodian can request removal; imagery is removed on request without requiring proof of ownership, and removals are logged.</li>
+      <li><strong>No cultural knowledge extraction:</strong> no mapping or publishing of knowledge about cultural sites; no site coordinates in metadata or captions; GPS EXIF stripped from published images.</li>
+      <li><strong>Language &amp; acknowledgement:</strong> site copy about Country uses inclusive language, names Traditional Custodians of worked areas where known, and carries an Acknowledgement of Country.</li>
+      <li><strong>Deceased persons &amp; gender-restricted business:</strong> not published without clearance.</li>
+    </ul>
+
+    <h3>Accountability</h3>
+    <p class="small">Takedown and privacy requests via the published enquiry address; unresolved privacy complaints to the OAIC. Annual review, and mandatory re-review before any new flight region, hosting/CRM service, or imagery class.</p>
+  </section>
+
+  <section>
+    <h2>Improvement trajectory these documents demonstrate</h2>
+    <p>The 2025-era ethics posture was a one-paragraph README disclaimer (<a href="projects/lm-pdf-editor.html">LM-PDF Editor</a>: "do not use this tool to create fake documents…"). The 2026 posture is operational governance: named frameworks (IDS/CARE/UNDRIP/AIATSIS/APPs), principle→feature control tables, data inventories, review cycles and complaint pathways. The trajectory — from <em>disclaiming</em> harm to <em>governing</em> data — is the Goal 1 evidence chain.</p>
+  </section>
+</main>
+
+<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+</body>
+</html>
