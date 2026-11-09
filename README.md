@@ -1,6 +1,6 @@
 # portfolio-2026
 
-Shayem Quazi — public engineering portfolio. Local-first automation, agent infrastructure, client systems, and measured media toolkits.
+Shayem Quazi: public engineering portfolio. Local-first automation, agent infrastructure, client systems, and measured media toolkits.
 Static site: plain HTML/CSS, **no build step**. Live at https://shayem1.github.io/portfolio-2026/
 
 ## Portfolio items
@@ -15,9 +15,9 @@ Static site: plain HTML/CSS, **no build step**. Live at https://shayem1.github.i
 | PF6 | LM-PDF Editor (retired 2026, documented) | `projects/lm-pdf-editor.html` |
 | PF7 | Network & system diagnostics fieldwork | `projects/diagnostics.html` |
 | PF8 | IDS & ethics policies (governance documents) | `policies.html` |
-| PF9 | *(retired item; number not reused)* | — |
+| PF9 | *(retired item; number not reused)* | - |
 | PF10 | Translator API (retired 2026; superseded by PF2 audio toolkits) | `projects/translator-api.html` |
-| PF11 | *(retired item; number not reused; was the extraction pipeline / file routing tool)* | — |
+| PF11 | *(retired item; number not reused; was the extraction pipeline / file routing tool)* | - |
 | PF12 | Discord bot (agent surface) | live page: `projects/discord-bot.html` |
 | PF13 | This portfolio site | live |
 
@@ -41,7 +41,7 @@ python -m http.server 8000
 :: open http://localhost:8000
 ```
 
-## Deploy — GitHub Pages (ACTIVE)
+## Deploy: GitHub Pages (ACTIVE)
 
 Live at **https://shayem1.github.io/portfolio-2026/** (Pages source: `gh-pages` branch, root path).
 
@@ -53,7 +53,7 @@ git push -f origin gh-pages
 ```
 (`main` is the working branch; `gh-pages` mirrors it for Pages.)
 
-## Deploy — Cloudflare Pages (alternative)
+## Deploy: Cloudflare Pages (alternative)
 
 Connect this repository → framework preset **None**, build command empty, output directory `/`.
 
