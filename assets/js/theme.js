@@ -1,10 +1,10 @@
 /* portfolio-2026 — experimental theme switcher (temporary feature)
-   Resolution order: ?theme=<auto|paper|blue|night|amber> > explicit saved choice > system.
-   System default: light mode -> Blue, dark mode -> Night. Auto tracks the OS live.
+   Resolution order: ?theme=<auto|paper|night|amber> > explicit saved choice > system.
+   System default: light mode -> Blue, dark mode -> Night (Blue is system-only, not a pill).
    Applies html[data-theme] before first paint; pills live in .site-head; persists in localStorage. */
 (function () {
-  var THEMES = [["auto", "Auto"], ["paper", "Paper"], ["blue", "Blue"], ["night", "Night"], ["amber", "Amber"]];
-  var fixed = ["paper", "blue", "night", "amber"];
+  var THEMES = [["auto", "Auto"], ["paper", "Paper"], ["night", "Night"], ["amber", "Amber"]];
+  var fixed = ["paper", "night", "amber"];
   var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   function sysTheme() { return mq && mq.matches ? "night" : "blue"; }
 
