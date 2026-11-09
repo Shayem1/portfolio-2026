@@ -36,11 +36,6 @@
   </div>
 
   <section>
-    <h2>Provenance</h2>
-    <p class="small">Honest provenance: the engines are off-the-shelf (inference runtime, whisper.cpp, sherpa-onnx, pretrained ONNX vision models, PyAV). What exists here is the build and the assembly: hardware-specific engine packages and tuning, CPU-optimised builds, model pruning and calibration, workflow glue, and tool doors. Off-the-shelf parts alone are a pile of libraries; assembled, benchmarked and calibrated to this machine and this data, they are the stack. Every number on this page comes from a local test log, manifest or test suite. The scanner workflow that triggered it all: <a href="scanner-for-ibma.html">Scanner-for-IBMA</a>.</p>
-  </section>
-
-  <section>
     <h2 id="audio">Components (off-the-shelf engines; built, tuned and assembled here)</h2>
     <div class="feat-list">
       <details class="feat"><summary><strong>Serving engine</strong> (Strata)</summary><p class="body">Off-the-shelf inference engine packaged for this hardware (HIP gfx1201 build) and tuned here; quantised-LLM inference on an RX 9070 XT with OpenAI-compatible serving doors written locally (/v1/chat/completions, /v1/audio/transcriptions), vision reader, geometric prompt-cache checkpoints and conversation-cache slots (bench: −9.6 % to −25.4 % re-read cost).</p></details>
