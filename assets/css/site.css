@@ -191,7 +191,7 @@ table.ledger tr:last-child td { border-bottom: none; }
 
 /* ---------- page navigation links ---------- */
 .navback { margin: 0 0 1.15rem; }
-.totop { margin: 2.2rem 0 0; text-align: right; }
+.totop { margin: 2.2rem 0 0; text-align: right; max-width: none; }
 .navback a, .totop a {
   font-family: var(--font-mono); font-size: .72rem; letter-spacing: .09em;
   text-transform: uppercase; color: var(--copper); text-decoration: none;
