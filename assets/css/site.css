@@ -88,6 +88,7 @@ p { margin: .55rem 0; max-width: 56ch; }
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .card.static { border-style: dashed; }
+.card > .status { align-self: flex-start; width: fit-content; }
 a.card { color: inherit; }
 a.card:hover {
   text-decoration: none;
