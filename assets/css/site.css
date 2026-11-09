@@ -224,13 +224,13 @@ html[data-theme="blue"] {
   --copper: #e37c14; --teal: #1276e0; --teal-soft: #d5e3f7;
   --alpha-soft: #f7e0c6; --code-bg: #e9eff8;
 }
-/* night: Nblue2 paper, Nblue1 cards; lightened Lblue1 links (readability tint); Orange3 accents */
+/* night: deepened Nblue2 page, deepened Nblue1 cards, brighter ink for contrast; Orange3 accents; lightened Lblue1 links */
 html[data-theme="night"] {
-  --paper: #0e0f30; --paper-2: #191c3d; --card: #161830;
-  --ink: #e9ebf6; --ink-2: #99a3c3; --rule: #343967;
-  --copper: #f28713; --teal: #66a3f2; --teal-soft: #182f57;
-  --alpha-soft: #3c2b15; --code-bg: #12142e;
-  --shadow: 0 10px 26px rgba(0, 0, 0, .5);
+  --paper: #090a1e; --paper-2: #14172f; --card: #131530;
+  --ink: #eef0f8; --ink-2: #99a3c3; --rule: #2b3058;
+  --copper: #f28713; --teal: #66a3f2; --teal-soft: #16294e;
+  --alpha-soft: #382812; --code-bg: #101227;
+  --shadow: 0 10px 26px rgba(0, 0, 0, .55);
 }
 /* amber: warm paper; Nblue1 ink; Orange1 accents; Lblue2 links */
 html[data-theme="amber"] {
