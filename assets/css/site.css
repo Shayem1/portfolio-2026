@@ -85,7 +85,13 @@ p { margin: .55rem 0; max-width: 56ch; }
 .card {
   border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.1rem 1.2rem;
   background: var(--card); display: flex; flex-direction: column; gap: .45rem;
+  position: relative;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card .pf {
+  position: absolute; top: .8rem; right: .9rem;
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em;
+  color: var(--ink-2);
 }
 .card.static { border-style: dashed; }
 .card > .status { align-self: flex-start; width: fit-content; }
