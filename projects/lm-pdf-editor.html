@@ -41,6 +41,21 @@
   </section>
 
   <section>
+    <h2>Proof of concept: v14 sample (Sep–Oct 2025 build)</h2>
+    <figure style="margin:1rem 0 0;">
+      <img src="../assets/media/pf6-lmpdf-v14-sample.png" alt="LM-PDF Editor v14 window beside the generated Banana Report PDF. The app shows output file name b1.pdf, Number of outputs 1, the Enable Seed.md toggle with Number of Seeds (1-99) set to 1, the context prompt banana report, a Start button and an All outputs done progress bar. The report page shows styled headings with colored rules and a two-column nutrient table with a styled header band." style="max-width:100%;border:1px solid var(--rule);border-radius:8px;">
+      <figcaption class="small">v14 sample run. The entire prompt was "banana report". Output: a 2–4 page styled PDF.</figcaption>
+    </figure>
+    <div class="feat-list">
+      <details class="feat"><summary>What the sample shows</summary><p class="body">From the three-word prompt "banana report", the v14 pipeline produced a fully formatted PDF: section headings with colored rules, a two-column table with a styled header band, aligned numeric rows and body prose, driven by a 4-billion-parameter non-reasoning model. At the time, frontier cloud models could barely style a table or a font at all.</p></details>
+      <details class="feat"><summary>Where the numbers in the output come from</summary><p class="body">The table values come from the model's training data. Nothing in the run validated them. The README disclaimer quoted in the section below states the operating rule: output is AI-generated and may not be accurate or verifiable.</p></details>
+      <details class="feat"><summary>Variation controls visible in the window</summary><p class="body">Number of outputs sets how many files one Start click produces, with no fixed cap on total runs. Enable Seed.md attaches per-output seed material, and Number of Seeds (1–99) selects how many seeded variations the user prompts through, so each output varies. Batches route round-robin across the configured backends, batch by batch.</p></details>
+      <details class="feat"><summary>Hardware envelope</summary><p class="body">This 2–4 page report renders in a few seconds on an RX 6800 XT. A 4B model also fits a 4 GB card, at 3–6× slower. That envelope is what makes bulk runs on ordinary hardware practical.</p></details>
+      <details class="feat"><summary>What it still does well</summary><p class="body">The pipeline remains an efficient generator of large volumes of test data: many document variations from short prompts, locally, with batching and seeded variation controlled from the UI.</p></details>
+    </div>
+  </section>
+
+  <section>
     <h2>Trade-offs it carried</h2>
     <div class="feat-list">
       <details class="feat"><summary>Lossy by design</summary><p class="body">The formatted files looked good but were hard to edit afterwards, because the formatting lived inside the file. In 2025 that trade bought visual quality no other pipeline could produce; by 2026 it stopped being worth paying.</p></details>
@@ -61,6 +76,7 @@
     <ul class="feat">
       <li>Project preserved locally (<code>Documents\GitHub\LM-PDF-editor\</code>) with README disclaimer, licence and sample generated outputs; repository (<code>Shayem1/LM-PDF-editor</code>) is private, shown on request</li>
       <li>Sample artifacts: BSBOPS501 workbook renders produced by the pipeline</li>
+      <li>v14 proof-of-concept image on this page: app window plus the generated Banana Report, stored at <code>assets/media/pf6-lmpdf-v14-sample.png</code></li>
     </ul>
   </section>
 </main>
