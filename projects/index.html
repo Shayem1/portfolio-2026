@@ -14,86 +14,96 @@
 <header class="site-head">
   <a class="brand" href="../index.html">Shayem Quazi</a>
   <nav>
-    <a href="index.html" aria-current="page">projects</a>
-    <a href="../policies.html">policies</a>
-    <a href="../about.html">about</a>
+    <a href="index.html" aria-current="page">Projects</a>
+    <a href="../policies.html">Policies</a>
+    <a href="../about.html">About</a>
   </nav>
 </header>
 
 <main>
-  <p class="eyebrow">portfolio inventory · PF-numbered</p>
+  <p class="eyebrow">portfolio inventory</p>
   <h1>Projects</h1>
-  <p class="claim">Everything built, in stable numbered order. Status chips are honest: <span class="status live">live</span> means running in production, <span class="status alpha">alpha</span> means functional but not release-hardened, <span class="status retired">retired</span> means deliberately superseded.</p>
+  <p class="claim">Everything built, each tile one click from its evidence.</p>
+
+  <div class="legend" aria-label="legend">
+    <span class="tag live" title="Running in production">live</span>
+    <span class="tag alpha" title="Functional, not yet release-hardened">alpha</span>
+    <span class="tag retired" title="Deliberately superseded, kept visible">retired</span>
+    <span class="tag" title="Built for an external organisation; internal code stays private">client</span>
+    <span class="tag" title="Utility component supporting other work">tool</span>
+    <span class="tag" title="Written governance documentation">governance</span>
+    <span class="tag" title="Portfolio item number, stable once assigned; the assessment appendix cites items by these numbers">PF#</span>
+  </div>
 
   <div class="cards">
-    <div class="card">
-      <span class="status live">PF1 · live · CI green</span>
-      <h3><a href="scanner-for-ibma.html">Scanner-for-IBMA</a></h3>
+    <a class="card" href="scanner-for-ibma.html">
+      <span class="status live">live · CI green</span>
+      <span class="t">Scanner-for-IBMA</span>
       <p class="small">Autonomous data scanner: scheduled scans into day-keyed workbooks, crash-safe merges, CI pipeline that tests the product.</p>
-    </div>
-    <div class="card">
-      <span class="status alpha">PF2 · self-built stack</span>
-      <h3><a href="strata-agent-stack.html">Strata agent stack</a></h3>
+    </a>
+    <a class="card" href="strata-agent-stack.html">
+      <span class="status alpha">self-built stack</span>
+      <span class="t">Strata agent stack</span>
       <p class="small">Local LLM serving plus CPU media toolkits (live audio, diarization, image store, video grounding) behind MCP tool doors.</p>
-    </div>
-    <div class="card">
-      <span class="status live">PF3 · client production</span>
-      <h3><a href="ibma-assessment.html">IBMA Assessment</a></h3>
+    </a>
+    <a class="card" href="ibma-assessment.html">
+      <span class="status live">client production</span>
+      <span class="t">IBMA Assessment</span>
       <p class="small">React SPA + Netlify Functions + Microsoft Graph for an accredited college.</p>
-    </div>
-    <div class="card">
-      <span class="status alpha">PF4 · public repo, tagged</span>
-      <h3><a href="panoviewer.html">Panoviewer</a></h3>
+    </a>
+    <a class="card" href="panoviewer.html">
+      <span class="status alpha">public repo · tagged</span>
+      <span class="t">Panoviewer</span>
       <p class="small">Gigapixel panorama viewer tested to 50,956 × 25,478 px; Python tiler, static web app, dev/main branch discipline.</p>
+    </a>
+    <div class="card static">
+      <span class="status">client</span>
+      <span class="t">SkyWorks Domain</span>
+      <p class="small">Aerial imagery and enquiry site for a client business, governed by its own policy. Private repository.</p>
     </div>
-    <div class="card">
-      <span class="status live">PF5 · client site</span>
-      <h3>SkyWorks Domain</h3>
-      <p class="small">Aerial imagery and enquiry site for a client business. Governed by its own policy (PF8). Private repository.</p>
-    </div>
-    <div class="card">
-      <span class="status retired">PF6 · retired 2026</span>
-      <h3><a href="lm-pdf-editor.html">LM-PDF Editor</a></h3>
+    <a class="card" href="lm-pdf-editor.html">
+      <span class="status retired">retired 2026</span>
+      <span class="t">LM-PDF Editor</span>
       <p class="small">Local-LLM document authoring (Oct 2025). Retired once cloud APIs absorbed the capability.</p>
-    </div>
-    <div class="card">
-      <span class="status live">PF7 · field work</span>
-      <h3><a href="diagnostics.html">Network &amp; system diagnostics</a></h3>
+    </a>
+    <a class="card" href="diagnostics.html">
+      <span class="status live">field work</span>
+      <span class="t">Network &amp; system diagnostics</span>
       <p class="small">NVR log forensics (SHA-256 inventory, ranked hypotheses) plus Windows reliability triage.</p>
-    </div>
-    <div class="card">
-      <span class="status">PF8 · governance</span>
-      <h3><a href="../policies.html">IDS &amp; ethics policies</a></h3>
-      <p class="small">Two governing policies in full, authored for PF1 and PF5 and committed into those projects.</p>
-    </div>
-    <div class="card">
-      <span class="status live">PF9 · live</span>
-      <h3>SNS-TAX site</h3>
+    </a>
+    <a class="card" href="../policies.html">
+      <span class="status">governance</span>
+      <span class="t">IDS &amp; ethics policies</span>
+      <p class="small">Two governing policies in full, authored for client projects and committed into them.</p>
+    </a>
+    <div class="card static">
+      <span class="status live">live</span>
+      <span class="t">SNS-TAX site</span>
       <p class="small">Single-page static site with Cloudflare wrangler deployment flow.</p>
     </div>
-    <div class="card">
-      <span class="status retired">PF10 · superseded</span>
-      <h3>Translator API</h3>
-      <p class="small">Containerised translation service (Dockerfile + compose). Replaced by the live audio toolkits in PF2.</p>
+    <div class="card static">
+      <span class="status retired">superseded</span>
+      <span class="t">Translator API</span>
+      <p class="small">Containerised translation service (Dockerfile + compose). Replaced by the Strata live audio toolkits.</p>
     </div>
-    <div class="card">
-      <span class="status live">PF11 · tool</span>
-      <h3>extraction</h3>
+    <div class="card static">
+      <span class="status">tool</span>
+      <span class="t">extraction</span>
       <p class="small">Directory-scanning file router used by data pipelines.</p>
     </div>
-    <div class="card">
-      <span class="status live">PF12 · agent surface</span>
-      <h3>Discord bot</h3>
+    <div class="card static">
+      <span class="status live">agent surface</span>
+      <span class="t">Discord bot</span>
       <p class="small">Always-on agent surface with its own data and model folders.</p>
     </div>
-    <div class="card">
-      <span class="status live">PF13 · this site</span>
-      <h3>Portfolio site</h3>
+    <div class="card static">
+      <span class="status live">this site</span>
+      <span class="t">Portfolio site</span>
       <p class="small">Static HTML/CSS, no build step, evidence-linked. Built local-first, deployed on GitHub Pages.</p>
     </div>
   </div>
 
-  <p class="small">New items take the next free PF number; existing numbers never change.</p>
+  <p class="small">Hover a tag to see its meaning. Solid tiles open; dashed tiles have no detail page (private or too small to need one).</p>
 </main>
 
 <footer class="site-foot">© 2026 Shayem Quazi · portfolio · built local-first, deployed static.</footer>
