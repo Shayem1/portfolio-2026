@@ -35,20 +35,20 @@
   </div>
 
   <section>
-    <h2>Case 1 — NVR video artifacts after physical relocation</h2>
+    <h2>Case 1: NVR video artifacts after physical relocation</h2>
     <p>Horizontal flickering on a VGA-over-Cat6 video output after an NVR was physically moved. Delivered as a <em>forensic log analysis report</em> (see <code>NVR_Forensics_Report.md</code>, 2026-10-20): <strong>evidence acquisition → timeline reconstruction → component-boundary analysis → fault-domain isolation → ranked hypotheses with discriminating tests.</strong></p>
     <div class="feat-list">
       <details class="feat"><summary>Evidence discipline</summary><p class="body">20 log files acquired from the device's system-report bundle, each hashed (SHA-256) before analysis; timezone normalisation documented (device UTC+10 vs MAC table UTC); no configuration touched, conclusions from logs only.</p></details>
       <details class="feat"><summary>Timeline from machine evidence</summary><p class="body">PoE port churn in the MAC table (camera MACs migrating between ports) independently corroborated the physical re-patching window; foreign non-camera MACs on a PoE port dated the earlier hands-on troubleshooting; a post-fault firmware upgrade was <em>excluded as cause</em> by timestamp ordering alone.</p></details>
       <details class="feat"><summary>Fault-domain isolation</summary><p class="body">Camera-side hypotheses dismissed via clean decode/display counters; fault follows the NVR output chain, not a channel.</p></details>
-      <details class="feat"><summary>Ranked hypotheses</summary><p class="body">Leading hypothesis, analog link margin: the VGA-over-Cat6 balun chain fails at 1080p60's 148.5 MHz pixel clock and stabilises at 720p60's 74.25 MHz (classic marginal-analog signature); the weakened-DAC alternative was kept alive and made testable rather than hand-waved.</p></details>
+      <details class="feat"><summary>Ranked hypotheses</summary><p class="body">Leading hypothesis, analog link margin: the VGA-over-Cat6 balun chain fails at 1080p60's 148.5 MHz pixel clock and stabilises at 720p60's 74.25 MHz (classic marginal-analog signature); the weakened-DAC alternative stayed in the ranked list with its own discriminating test.</p></details>
       <details class="feat"><summary>Outcome</summary><p class="body">720p60 adopted as a documented operational mitigation; permanent fix specified (retire the analog leg for a digital HDMI extender; the HDMI chain has been fault-free on comparable wiring); intermediate timings proposed as further discriminating experiments; one test explicitly named as the decisive next probe.</p></details>
     </div>
   </section>
 
   <section>
-    <h2>Case 2 — Windows reliability triage</h2>
-    <p>Smaller case: Windows Reliability Monitor export (XML) plus crash captures cross-read to correlate a crash cluster against install/driver events — OS-level triage feeding hardware decisions on the same machine the media toolkits run on.</p>
+    <h2>Case 2: Windows reliability triage</h2>
+    <p>Smaller case: Windows Reliability Monitor export (XML) plus crash captures cross-read to correlate a crash cluster against install/driver events; that OS-level triage fed hardware decisions on the same machine the media toolkits run on.</p>
   </section>
 
 </main>
