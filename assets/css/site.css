@@ -130,7 +130,7 @@ ul.feat li::before { content: "\203A"; position: absolute; left: .15rem; color: 
 /* ---------- architecture blocks ---------- */
 pre.arch {
   font-family: var(--font-mono); font-size: .8rem; line-height: 1.5;
-  background: #f2f4f6; border: 1px solid var(--rule); border-left: 3px solid var(--teal);
+  background: #f2f4f6; border: 1px solid var(--rule);
   border-radius: 8px; padding: .8rem 1rem; overflow-x: auto; white-space: pre;
 }
 
