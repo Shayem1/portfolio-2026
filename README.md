@@ -7,7 +7,7 @@ Static site: plain HTML/CSS, **no build step**. Designed for GitHub Pages or Clo
 
 ```
 index.html                 landing: thesis + bench strip + project cards
-projects/                  one page per project (scanner, strata stack, ibma, panoviewer, translator, lm-pdf-editor, diagnostics)
+projects/                  one page per project (scanner, strata stack, ibma, panoviewer, lm-pdf-editor, diagnostics)
 goals.html                 Assessment 1 plan line -> what was done -> proof  (the 15-pt linkage artifact)
 policies.html              both IDS/ethics policies in full (extracted from client-repo docs; own authorship — publishable)
 about.html                 SFIA ratings before/after the builds

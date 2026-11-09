@@ -42,7 +42,7 @@
   </section>
 
   <section>
-    <h2>Components (all self-built on this machine)</h2>
+    <h2 id="audio">Components (all self-built on this machine)</h2>
     <ul class="feat">
       <li><strong>Serving engine</strong> — Strata: quantised-LLM inference on an RX 9070 XT (HIP gfx1201), OpenAI-compatible doors (/v1/chat/completions, /v1/audio/transcriptions), vision reader, geometric prompt-cache checkpoints and conversation-cache slots (bench: −9.6 % to −25.4 % re-read cost).</li>
       <li><strong>Audio grounding</strong> — whisper.cpp built from source with Zen 4 SIMD kernels (AVX512/VBMI/VNNI/BF16); one pass per recording, timestamp manifests written per transcription.</li>
@@ -51,6 +51,7 @@
       <li><strong>Video grounding</strong> — motion-adaptive keyframes (tile-diff thresholds with codec-noise suppression, NMS, coverage skeleton) joined to diarization turns by timestamp, so a frame carries <em>who was speaking when</em>.</li>
       <li><strong>Agent surface</strong> — every capability exposed through MCP tool doors and consumed daily by an OpenCode agent workflow (including the one that helped assemble this portfolio).</li>
     </ul>
+    <p><strong>Agent-independent by design.</strong> The audio stack works with or without an LLM agent: whisper is a live transcription-and-translation tool (any language in, English out), diarization is a live speaker-separation tool, and joined they transcribe multilingual, multi-speaker input for any downstream system. This pipeline is what superseded the Dockerised translation service that first answered the plan's Docker line.</p>
   </section>
 
   <section>
