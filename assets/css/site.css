@@ -12,6 +12,8 @@
   --copper: #b25a2b;
   --teal: #1e6b60;
   --teal-soft: #d7e6e2;
+  --alpha-soft: #f2e2d7;
+  --code-bg: #f2f4f6;
   --shadow: 0 8px 22px rgba(21, 26, 32, .12);
   --radius: 10px;
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
@@ -75,7 +77,7 @@ p { margin: .55rem 0; max-width: 56ch; }
   border-radius: 999px; background: var(--paper-2); color: var(--ink-2);
 }
 .status.live, .tag.live { color: var(--teal); border-color: var(--teal); background: var(--teal-soft); }
-.status.alpha, .tag.alpha { color: var(--copper); border-color: var(--copper); background: #f2e2d7; }
+.status.alpha, .tag.alpha { color: var(--copper); border-color: var(--copper); background: var(--alpha-soft); }
 .status.retired, .tag.retired { color: var(--ink-2); border-style: dashed; }
 .legend { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
 .tag { cursor: help; }
@@ -167,7 +169,7 @@ details.feat .body { padding: .35rem 0 .2rem 1.15rem; margin: 0; }
 /* ---------- architecture blocks ---------- */
 pre.arch {
   font-family: var(--font-mono); font-size: .8rem; line-height: 1.5;
-  background: #f2f4f6; border: 1px solid var(--rule);
+  background: var(--code-bg); border: 1px solid var(--rule);
   border-radius: 8px; padding: .8rem 1rem; overflow-x: auto; white-space: pre;
 }
 
@@ -194,4 +196,46 @@ table.ledger tr:last-child td { border-bottom: none; }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
   a.card:hover { transform: none; }
+}
+
+/* ---------- experimental theme switcher (nav) ---------- */
+.theme-switch {
+  display: flex; align-items: center; gap: .25rem; margin-left: 1rem;
+  border: 1px dashed var(--rule); border-radius: 999px; padding: .15rem .45rem;
+}
+.tlabel {
+  font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-2); padding: 0 .35rem 0 .25rem;
+}
+.tbtn {
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .08em;
+  padding: .22rem .6rem; border: 1px solid transparent; border-radius: 999px;
+  background: transparent; color: var(--ink-2); cursor: pointer;
+  transition: color .15s ease, background .15s ease;
+}
+.tbtn:hover { color: var(--ink); }
+.tbtn.active { background: var(--ink); color: var(--paper); }
+
+/* ---------- experimental color themes ---------- */
+/* blue: cool light paper; Lblue1 links/live pills; Orange1 accents; Nblue1 ink */
+html[data-theme="blue"] {
+  --paper: #e7edf8; --paper-2: #dce4f1; --card: #f0f4fb;
+  --ink: #161830; --ink-2: #4d5673; --rule: #b7c4da;
+  --copper: #e37c14; --teal: #1276e0; --teal-soft: #d5e3f7;
+  --alpha-soft: #f7e0c6; --code-bg: #e9eff8;
+}
+/* night: Nblue2 paper, Nblue1 cards; lightened Lblue1 links (readability tint); Orange3 accents */
+html[data-theme="night"] {
+  --paper: #0e0f30; --paper-2: #191c3d; --card: #161830;
+  --ink: #e9ebf6; --ink-2: #99a3c3; --rule: #343967;
+  --copper: #f28713; --teal: #66a3f2; --teal-soft: #182f57;
+  --alpha-soft: #3c2b15; --code-bg: #12142e;
+  --shadow: 0 10px 26px rgba(0, 0, 0, .5);
+}
+/* amber: warm paper; Nblue1 ink; Orange1 accents; Lblue2 links */
+html[data-theme="amber"] {
+  --paper: #f6e9d6; --paper-2: #eeddc4; --card: #f9f0e2;
+  --ink: #161830; --ink-2: #6c5f4b; --rule: #d9c1a1;
+  --copper: #e37c14; --teal: #0f5ef2; --teal-soft: #dbe5f8;
+  --alpha-soft: #f3ddbd; --code-bg: #f1e4cf;
 }
