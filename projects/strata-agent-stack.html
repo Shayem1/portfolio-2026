@@ -23,7 +23,7 @@
 <main>
   <p class="eyebrow"><span class="status alpha">alpha</span> &nbsp; Python · C++/HIP · ONNX · MCP · AMD gfx1201</p>
   <h1>Strata agent stack</h1>
-  <p class="claim">Component inventory for a local-first agent stack: what was built on this machine, how each piece was measured, and how the pieces join.</p>
+  <p class="claim">Component inventory for a local-first agent stack: what is off-the-shelf, what was built here, how each piece was measured, and how the pieces join.</p>
 
   <div class="bench">
     <div class="m"><span class="n">0.065<small> RTF</small></span><span class="l">whisper base: 11 s audio → 0.7 s</span></div>
@@ -36,18 +36,18 @@
 
   <section>
     <h2>Provenance</h2>
-    <p class="small">No imported toolkits. Every component was authored, calibrated and benchmarked on this machine, and every number on this page comes from a local test log, manifest or test suite. The scanner workflow that triggered this stack: <a href="scanner-for-ibma.html">Scanner-for-IBMA</a>.</p>
+    <p class="small">Honest provenance: the engines are off-the-shelf (inference runtime, whisper.cpp, sherpa-onnx, pretrained ONNX vision models, PyAV). What exists here is the build and the assembly: hardware-specific engine packages and tuning, CPU-optimised builds, model pruning and calibration, workflow glue, and tool doors. Off-the-shelf parts alone are a pile of libraries; assembled, benchmarked and calibrated to this machine and this data, they are the stack. Every number on this page comes from a local test log, manifest or test suite. The scanner workflow that triggered it all: <a href="scanner-for-ibma.html">Scanner-for-IBMA</a>.</p>
   </section>
 
   <section>
-    <h2 id="audio">Components (all self-built on this machine)</h2>
+    <h2 id="audio">Components (off-the-shelf engines; built, tuned and assembled here)</h2>
     <ul class="feat">
-      <li><strong>Serving engine</strong> (Strata): quantised-LLM inference on an RX 9070 XT (HIP gfx1201), OpenAI-compatible doors (/v1/chat/completions, /v1/audio/transcriptions), vision reader, geometric prompt-cache checkpoints and conversation-cache slots (bench: −9.6 % to −25.4 % re-read cost).</li>
-      <li><strong>Audio grounding</strong>: whisper.cpp built from source with Zen 4 SIMD kernels (AVX512/VBMI/VNNI/BF16); one pass per recording, timestamp manifests written per transcription.</li>
-      <li><strong>Speaker diarization</strong>: pure-CPU sherpa-onnx pipeline; segmentation + speaker embeddings; reproduces the published reference split exactly (4/4 turns, RTF 0.04); language-robust embedding model chosen after cross-language failure testing.</li>
-      <li><strong>Image store</strong>: Tier 1, 64-bit DCT perceptual hash with SHA-256 dedupe; Tier 2, CLIP/SigLIP embedding search in SQLite with calibrated thresholds (near-duplicates ≥0.95, related scenes 0.5–0.7, cross-domain ≤0.65); Tier 2b, text-to-image retrieval via a pruned CLIP text tower (SigLIP text-tower misalignment logged as a documented dead end).</li>
-      <li><strong>Video grounding</strong> — motion-adaptive keyframes (tile-diff thresholds with codec-noise suppression, NMS, coverage skeleton) joined to diarization turns by timestamp, so a frame carries <em>who was speaking when</em>.</li>
-      <li><strong>Agent surface</strong> — every capability exposed through MCP tool doors and consumed daily by an OpenCode agent workflow (including the one that helped assemble this portfolio).</li>
+      <li><strong>Serving engine</strong> (Strata): off-the-shelf inference engine packaged for this hardware (HIP gfx1201 build) and tuned here; quantised-LLM inference on an RX 9070 XT with OpenAI-compatible serving doors written locally (/v1/chat/completions, /v1/audio/transcriptions), vision reader, geometric prompt-cache checkpoints and conversation-cache slots (bench: −9.6 % to −25.4 % re-read cost).</li>
+      <li><strong>Audio grounding</strong>: whisper.cpp engine built from source for this CPU with Zen 4 SIMD kernels (AVX512/VBMI/VNNI/BF16); the one-pass-per-recording flow and per-transcription timestamp manifests are integration code written here.</li>
+      <li><strong>Speaker diarization</strong>: sherpa-onnx segmentation and speaker-embedding models (off-the-shelf); the run scripts, cross-language model selection and turn-join logic are mine; reproduces a published reference split exactly (4/4 turns, RTF 0.04).</li>
+      <li><strong>Image store</strong>: core written here (64-bit DCT perceptual hash, SQLite store, calibrated thresholds: near-duplicates ≥0.95, related scenes 0.5–0.7, cross-domain ≤0.65; 235 ms scan over 200k rows); CLIP/SigLIP models are pretrained and were pruned on this machine via an ONNX graph walk into vision-only and text-only towers (SigLIP text-tower misalignment logged as a documented dead end; 18 ms text-to-image queries).</li>
+      <li><strong>Video grounding</strong>: selection algorithm written here (motion-adaptive keyframes, codec-noise suppression, NMS) on top of PyAV CPU decode; keyframes joined to diarization speaker turns by timestamp, so a frame carries <em>who was speaking when</em> (1.1 s to keyframe a 300-frame probe).</li>
+      <li><strong>Agent surface</strong>: every capability exposed through MCP tool doors written here, consumed daily by agent workflows (including the one that helped assemble this portfolio).</li>
     </ul>
     <p><strong>Runs with or without an agent in the loop.</strong> Whisper transcribes and translates live (any language to English); diarization separates speakers live; joined, they output multilingual multi-speaker transcripts to any downstream system. This pipeline superseded an earlier containerised translation service (archived as PF10).</p>
     <p><strong>Target silicon:</strong> enterprise desktops, the class of machine client workplaces actually own (10-20 core AVX-class CPUs, weak display GPUs).</p>
