@@ -22,11 +22,17 @@ python -m http.server 8000
 :: open http://localhost:8000
 ```
 
-## Deploy — GitHub Pages
+## Deploy — GitHub Pages (ACTIVE)
 
-1. Push this repo to GitHub.
-2. Repo → Settings → Pages → Source: **Deploy from a branch**, branch `main`, folder `/ (root)`.
-3. Site serves at `https://<user>.github.io/portfolio-2026/`. All links are relative, so the sub-path works unchanged.
+Live at **https://shayem1.github.io/portfolio-2026/** (Pages source: `gh-pages` branch, root path).
+
+Workflow for updates:
+```bat
+git push origin main
+git branch -f gh-pages main
+git push -f origin gh-pages
+```
+(`main` is the working branch; `gh-pages` mirrors it for Pages. If you switch Pages to deploy-from-branch `main` in Settings, the mirror step is no longer needed.)
 
 ## Deploy — Cloudflare Pages
 
