@@ -24,25 +24,25 @@
 <main>
   <p class="eyebrow"><span class="status retired">retired</span> &nbsp; Python · local LLM pipeline · MIT · 2025</p>
   <h1>LM-PDF Editor</h1>
-  <p class="claim">A tool that closed a capability gap — and was deliberately allowed to die when the gap closed underneath it.</p>
+  <p class="claim">Local-LLM document authoring, October 2025. Retired by choice in 2026 once cloud model APIs absorbed the capability.</p>
 
   <div class="bench">
     <div class="m"><span class="n">Oct<small> 2025</small></span><span class="l">built: local-LLM document authoring</span></div>
     <div class="m"><span class="n">4–6<small> mo</small></span><span class="l">until cloud APIs absorbed the capability</span></div>
     <div class="m"><span class="n">MIT</span><span class="l">licensed, public-era artifact (repo private)</span></div>
-    <div class="m"><span class="n">2026</span><span class="l">retired — superseded, not abandoned</span></div>
+    <div class="m"><span class="n">2026</span><span class="l">superseded, not abandoned</span></div>
   </div>
 
   <section>
     <h2>The problem, in its time</h2>
-    <p>In October 2025, generating a <em>presentable document</em> from a language model was a solved problem for no one. In my judgement at the time, frontier cloud models could barely format a table or choose a font — their "documents" were notepad output with slightly cleaner spacing. My local model was no better. Real workplace deliverables (training workbooks like BSBOPS501, appraisal reports) were out of reach for any LLM pipeline.</p>
-    <p>LM-PDF Editor closed that gap: a prompts-and-utils pipeline in which a local model generated the content and the tool imposed professional structure — producing visually publication-quality PDFs and Word-compatible files that a workplace could actually deliver. For its window, it was a leading-class proprietary application: nothing on the market did document authoring from a model's prose well.</p>
+    <p>In October 2025, no mainstream model pipeline could produce a presentable document. In my judgement at the time, frontier cloud models barely formatted a table or chose a font: their "documents" were notepad output with slightly cleaner spacing. My local model was no better. Workplace deliverables I actually needed, like the BSBOPS501 training workbooks and appraisal reports, were out of reach.</p>
+    <p>LM-PDF Editor closed that gap: a prompts-and-utils pipeline in which a local model generated the content and the tool imposed professional structure, producing visually publication-quality PDFs and Word-compatible files a workplace could actually deliver. For its window, it was a leading-class proprietary application: nothing on the market did document authoring from a model's prose well.</p>
   </section>
 
   <section>
     <h2>Honest trade-offs it carried</h2>
     <ul class="feat">
-      <li>Output was <strong>lossy</strong> by design: formatted output looked great but was awkward to edit afterwards — formatting was baked, not semantic. In 2025 that trade bought delivery-visual quality nobody else could get; by 2026 it was unacceptable.</li>
+      <li>Output was <strong>lossy</strong> by design: the formatted files looked good but were hard to edit afterwards, because formatting was baked in rather than semantic. In 2025 that trade bought visual quality no other pipeline could produce; by 2026 it stopped being worth paying.</li>
       <li>An ethical disclaimer was published in the README from day one: <em>"The output is AI-generated and may not be accurate or verifiable. Users are responsible for the ethical and legal use of generated content. Do not use this tool to create fake documents, impersonate individuals, or deceive others."</em></li>
       <li>It ran entirely on a local model — workplace documents never left the machine.</li>
     </ul>
@@ -50,13 +50,13 @@
 
   <section>
     <h2>Why it retired</h2>
-    <p>Around four to six months after building it, the cloud model APIs gained native document authoring: proper editable formatting, tables, styles — an ordinary coding agent (no specialised tools) could now produce a better document, faster, with validation checks and live references. The capability the tool existed to compensate for stopped being special. I retired it rather than maintain a solution to a problem that no longer exists.</p>
-    <p><strong>What it proves for this portfolio:</strong> the ability to recognise a capability gap, build a production tool into it, name its trade-offs honestly, and get out of its way when the field catches up. It also marks the <em>start of my data-ethics trajectory</em>: the 2025 posture was this one-paragraph disclaimer; by 2026 it became framework-mapped governance (full evolution on the <a href="../policies.html">policies page</a>). The durable parts — agent pipelines, validation habits, self-hosted data policy — moved into the work on <a href="strata-agent-stack.html">the Strata agent stack</a>.</p>
+    <p>Around four to six months after building it, the cloud model APIs gained native document authoring: proper editable formatting, tables, styles; an ordinary coding agent (no specialised tools) could now produce a better document, faster, with validation checks and live references. The capability the tool existed to compensate for stopped being special. I retired it rather than maintain a solution to a problem that no longer exists.</p>
+    <p class="small">Durable outputs moved into <a href="strata-agent-stack.html">the Strata agent stack</a>. The disclaimer-to-governance ethics trajectory this artifact anchors is discussed in section 4 of the report.</p>
   </section>
 
   <section class="align">
     <h2>Learning-plan alignment</h2>
-    <p class="small">Goal 4-era capability evidence (LLM application pipelines) · Goal 1 (published AI-use disclaimer before it was fashionable). <a href="../goals.html">Full mapping →</a></p>
+    <p class="small">Wiring: <a href="../goals.html">goals page</a>. Goal 4-era pipelines; the earliest published AI-use disclaimer in my work.</p>
   </section>
 
   <section>

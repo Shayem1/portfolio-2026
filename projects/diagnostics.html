@@ -24,7 +24,7 @@
 <main>
   <p class="eyebrow"><span class="status live">field work</span> &nbsp; Goal 2 applied · log forensics · fault-domain isolation</p>
   <h1>Network &amp; system diagnostics</h1>
-  <p class="claim">Where the cybersecurity/network fundamentals got proven the way an MSP would demand it: real faults, log evidence only, ranked hypotheses.</p>
+  <p class="claim">Case records behind Goal 2. Method, evidence inventory and hypothesis rankings below; the reasoning that ties them to the plan is in section 2 of the report.</p>
 
   <div class="bench">
     <div class="m"><span class="n">20</span><span class="l">log artifacts acquired, SHA-256 hashed</span></div>
@@ -37,11 +37,11 @@
     <h2>Case 1 — NVR video artifacts after physical relocation</h2>
     <p>Horizontal flickering on a VGA-over-Cat6 video output after an NVR was physically moved. Delivered as a <em>forensic log analysis report</em> (see <code>NVR_Forensics_Report.md</code>, 2026-10-20): <strong>evidence acquisition → timeline reconstruction → component-boundary analysis → fault-domain isolation → ranked hypotheses with discriminating tests.</strong></p>
     <ul class="feat">
-      <li><strong>Evidence discipline:</strong> 20 log files acquired from the device's system-report bundle, each hashed (SHA-256) before analysis; timezone normalisation documented (device UTC+10 vs MAC table UTC); no configuration touched — conclusions from logs only.</li>
+      <li><strong>Evidence discipline:</strong> 20 log files acquired from the device's system-report bundle, each hashed (SHA-256) before analysis; timezone normalisation documented (device UTC+10 vs MAC table UTC); no configuration touched, conclusions from logs only.</li>
       <li><strong>Timeline from machine evidence:</strong> PoE port churn in the MAC table (camera MACs migrating between ports) independently corroborated the physical re-patching window; foreign non-camera MACs on a PoE port dated the earlier hands-on troubleshooting; a post-fault firmware upgrade was <em>excluded as cause</em> by timestamp ordering alone.</li>
       <li><strong>Fault-domain isolation:</strong> camera-side hypotheses dismissed via clean decode/display counters; fault follows the NVR output chain, not a channel.</li>
-      <li><strong>Ranked hypotheses:</strong> leading — analog link margin: the VGA-over-Cat6 balun chain fails at 1080p60's 148.5 MHz pixel clock and stabilises at 720p60's 74.25 MHz (classic marginal-analog signature); alternative weakened-DAC hypothesis kept alive and made testable rather than hand-waved.</li>
-      <li><strong>Outcome:</strong> 720p60 adopted as a documented operational mitigation; permanent fix specified (retire the analog leg for a digital HDMI extender — the HDMI chain has been fault-free on comparable wiring); intermediate timings proposed as further discriminating experiments; one test explicitly named as the decisive next probe.</li>
+      <li><strong>Ranked hypotheses:</strong> leading hypothesis, analog link margin: the VGA-over-Cat6 balun chain fails at 1080p60's 148.5 MHz pixel clock and stabilises at 720p60's 74.25 MHz (classic marginal-analog signature); the weakened-DAC alternative was kept alive and made testable rather than hand-waved.</li>
+      <li><strong>Outcome:</strong> 720p60 adopted as a documented operational mitigation; permanent fix specified (retire the analog leg for a digital HDMI extender; the HDMI chain has been fault-free on comparable wiring); intermediate timings proposed as further discriminating experiments; one test explicitly named as the decisive next probe.</li>
     </ul>
   </section>
 
@@ -51,8 +51,8 @@
   </section>
 
   <section class="align">
-    <h2>Learning-plan alignment (Goal 2)</h2>
-    <p class="small">The Task 1 audit put it exactly right: cybersecurity and IT-support troubleshooting are the "same skill, different objective". Completed subjects (48730 Cybersecurity · 41092 Network Fundamentals, 6 cp each, handbook-verified) supply the foundations — on-device/network penetration testing and defensive practice; the labs' coursework submissions are marker-facing (guide-followed exercises with screenshots), so this page, not the lab sheets, carries the Goal-2 demonstration: fault-domain isolation and evidence discipline at the standard the IT Support Consultant dream-job ad describes ("diagnosing customer issues … high level of the first-time fix", networking, security tools and best practices). <a href="../goals.html">Full mapping →</a></p>
+    <h2>Goal 2 wiring</h2>
+    <p class="small">Subjects, marks, and the completion-versus-demonstration evidence split: <a href="../goals.html#g2">goals page, Goal 2</a>.</p>
   </section>
 </main>
 

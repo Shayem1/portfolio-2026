@@ -24,7 +24,7 @@
 <main>
   <p class="eyebrow"><span class="status alpha">alpha</span> &nbsp; Python · C++/HIP · ONNX · MCP · AMD gfx1201</p>
   <h1>Strata agent stack</h1>
-  <p class="claim">My learning plan asked for one autonomous workflow. What got built instead was the ground layer every such workflow needs: a local LLM server plus CPU media toolkits that give any agent non-text context.</p>
+  <p class="claim">The component inventory behind Goal 4: what was built on this machine, how each piece was measured, and how the pieces join. The plan-to-outcome narrative is in section 2 of the report.</p>
 
   <div class="bench">
     <div class="m"><span class="n">0.065<small> RTF</small></span><span class="l">whisper base: 11 s audio → 0.7 s</span></div>
@@ -36,23 +36,22 @@
   </div>
 
   <section>
-    <h2>Why it exists</h2>
-    <p>Goal 4 of the learning plan specified a narrow system: "an autonomous workflow that will scan and read spreadsheets, text files, and images … and return routinely updated database", using n8n "or equivalent". That workflow was built (<a href="scanner-for-ibma.html">Scanner-for-IBMA</a>). But instead of importing an off-the-shelf orchestrator, everything it required was engineered from scratch on this machine — inference serving, audio, diarization, image search, video grounding — and each piece was kept as a general tool any agent can use through MCP tool doors.</p>
-    <p class="small">Nothing here was imported as a ready-made toolkit: every component was authored, calibrated and benchmarked locally. Generic MCP servers now exist publicly; this stack differs by being local-first, calibrated to real data, and measured — every number on this page comes from a local test log or manifest.</p>
+    <h2>Provenance</h2>
+    <p class="small">No imported toolkits. Every component was authored, calibrated and benchmarked on this machine, and every number on this page comes from a local test log, manifest or test suite. The scanner workflow that triggered this stack: <a href="scanner-for-ibma.html">Scanner-for-IBMA</a>.</p>
   </section>
 
   <section>
     <h2 id="audio">Components (all self-built on this machine)</h2>
     <ul class="feat">
-      <li><strong>Serving engine</strong> — Strata: quantised-LLM inference on an RX 9070 XT (HIP gfx1201), OpenAI-compatible doors (/v1/chat/completions, /v1/audio/transcriptions), vision reader, geometric prompt-cache checkpoints and conversation-cache slots (bench: −9.6 % to −25.4 % re-read cost).</li>
-      <li><strong>Audio grounding</strong> — whisper.cpp built from source with Zen 4 SIMD kernels (AVX512/VBMI/VNNI/BF16); one pass per recording, timestamp manifests written per transcription.</li>
-      <li><strong>Speaker diarization</strong> — pure-CPU sherpa-onnx pipeline; segmentation + speaker embeddings; reproduces the published reference split exactly (4/4 turns, RTF 0.04); language-robust embedding model chosen after cross-language failure testing.</li>
-      <li><strong>Image store</strong> — Tier 1: 64-bit DCT perceptual hash with SHA-256 dedupe; Tier 2: CLIP/SigLIP embedding search in SQLite with calibrated thresholds (near-duplicates ≥0.95, related scenes 0.5–0.7, cross-domain ≤0.65); Tier 2b: text→image retrieval via pruned CLIP text tower (dead-end logged: SigLIP text tower misaligns — documented, not hidden).</li>
+      <li><strong>Serving engine</strong> (Strata): quantised-LLM inference on an RX 9070 XT (HIP gfx1201), OpenAI-compatible doors (/v1/chat/completions, /v1/audio/transcriptions), vision reader, geometric prompt-cache checkpoints and conversation-cache slots (bench: −9.6 % to −25.4 % re-read cost).</li>
+      <li><strong>Audio grounding</strong>: whisper.cpp built from source with Zen 4 SIMD kernels (AVX512/VBMI/VNNI/BF16); one pass per recording, timestamp manifests written per transcription.</li>
+      <li><strong>Speaker diarization</strong>: pure-CPU sherpa-onnx pipeline; segmentation + speaker embeddings; reproduces the published reference split exactly (4/4 turns, RTF 0.04); language-robust embedding model chosen after cross-language failure testing.</li>
+      <li><strong>Image store</strong>: Tier 1, 64-bit DCT perceptual hash with SHA-256 dedupe; Tier 2, CLIP/SigLIP embedding search in SQLite with calibrated thresholds (near-duplicates ≥0.95, related scenes 0.5–0.7, cross-domain ≤0.65); Tier 2b, text-to-image retrieval via a pruned CLIP text tower (SigLIP text-tower misalignment logged as a documented dead end).</li>
       <li><strong>Video grounding</strong> — motion-adaptive keyframes (tile-diff thresholds with codec-noise suppression, NMS, coverage skeleton) joined to diarization turns by timestamp, so a frame carries <em>who was speaking when</em>.</li>
       <li><strong>Agent surface</strong> — every capability exposed through MCP tool doors and consumed daily by an OpenCode agent workflow (including the one that helped assemble this portfolio).</li>
     </ul>
-    <p><strong>Agent-independent by design.</strong> The audio stack works with or without an LLM agent: whisper is a live transcription-and-translation tool (any language in, English out), diarization is a live speaker-separation tool, and joined they transcribe multilingual, multi-speaker input for any downstream system. This pipeline is what superseded the Dockerised translation service that first answered the plan's Docker line.</p>
-    <p><strong>CPU-first is deployment fit, not a performance apology.</strong> The machines workplaces actually own are enterprise desktops: weak display GPUs, but 10–20 core AVX-class CPUs. Every toolkit here is built for that fleet, so the same pipelines run on client hardware without asking anyone to buy a graphics card — and on this machine they leave the GPU free for the serving stack instead of competing with it for VRAM.</p>
+    <p><strong>Runs with or without an agent in the loop.</strong> Whisper transcribes and translates live (any language to English); diarization separates speakers live; joined, they output multilingual multi-speaker transcripts to any downstream system. This pipeline superseded the containerised translation service that first answered the plan's Docker line.</p>
+    <p><strong>Target silicon:</strong> enterprise desktops, the class client workplaces actually own (10-20 core AVX-class CPUs, weak display GPUs). Why that choice: report section 4.</p>
   </section>
 
   <section>

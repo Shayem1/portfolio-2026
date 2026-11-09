@@ -25,7 +25,7 @@
 <main>
   <p class="eyebrow"><span class="status">Goal 1 artifact</span> &nbsp; authored Nov 2026 · committed to project repos · extracted here in full</p>
   <h1>Two governing policies, in full</h1>
-  <p class="claim">The learning plan promised "practise IDS policies for my existing projects". These are the two written and committed. The systems they govern belong to external organisations — the internal code and data stay private; the policies are mine to publish.</p>
+  <p class="claim">The two policies the learning plan promised ("practise IDS policies for my existing projects"), committed into the projects they govern. The systems belong to external organisations, so internal code and data stay private. The policy texts are my own authorship, published here in full.</p>
 
   <section>
     <h2 id="scanner-policy">1 — Scanner-for-IBMA · data-processing ethics policy</h2>
@@ -44,10 +44,10 @@
     <table class="ledger">
       <tr><th>Principle</th><th>Control actually built into the project</th></tr>
       <tr><td>Authority to control (CARE) / self-determination (AIATSIS)</td><td>All data belongs to the institution and its students; the tool is a processor, never a publisher. Output returns only to the institution's own systems or the operator's machine.</td></tr>
-      <tr><td>Data minimisation (APP 3)</td><td>The pipeline extracts only the contact-code column needed to build the ID-keyed workbook — not free-text personal detail.</td></tr>
+      <tr><td>Data minimisation (APP 3)</td><td>The pipeline extracts only the contact-code column needed to build the ID-keyed workbook, not free-text personal detail.</td></tr>
       <tr><td>Pseudonymisation (APP 2, APP 11)</td><td>Individuals travel as <code>ContactID-*</code> codes; the code→person mapping stays inside the institution's systems and is never duplicated by this tool.</td></tr>
-      <tr><td>Data residency / no cross-border transfer (APP 8)</td><td>Processing is local, single-operator. <code>*.txt</code>, <code>*.xlsx</code> and <code>/memory/</code> are git-ignored, verified — personal data structurally cannot reach any remote repository.</td></tr>
-      <tr><td>Integrity of student records</td><td>Post-crash behaviour is merge-not-overwrite (<code>merge()</code>); <code>recover.py</code> rebuilds workbooks from exports — verified by the CI smoke test.</td></tr>
+      <tr><td>Data residency / no cross-border transfer (APP 8)</td><td>Processing is local, single-operator. <code>*.txt</code>, <code>*.xlsx</code> and <code>/memory/</code> are git-ignored (verified); personal data structurally cannot reach any remote repository.</td></tr>
+      <tr><td>Integrity of student records</td><td>Post-crash behaviour is merge-not-overwrite (<code>merge()</code>); <code>recover.py</code> rebuilds workbooks from exports, verified by the CI smoke test.</td></tr>
       <tr><td>Retention &amp; disposal</td><td>Exports are working copies; superseded exports are deleted at term end; backups never leave the operator's machine.</td></tr>
       <tr><td>Access control</td><td>Runs only under the operator's own authenticated session; no credentials stored in the repository.</td></tr>
     </table>
@@ -69,14 +69,14 @@
     <p class="small">Governs: aerial/drone imagery services (Sydney + 300 km) and the static website's enquiry data. v1.0 · 2026-11-08.</p>
 
     <h3>Why the ordering</h3>
-    <p>SkyWorks flies and publishes imagery of Country — including land that may hold cultural heritage, ceremonial sites or resting places. The highest ethical duty is to First Nations custodians; the second is visitors' personal information.</p>
+    <p>SkyWorks flies and publishes imagery of Country, including land that may hold cultural heritage, ceremonial sites or resting places. The highest ethical duty is to First Nations custodians; the second is visitors' personal information.</p>
 
     <h3>Controls actually built into the project</h3>
     <table class="ledger">
       <tr><th>Principle</th><th>Control</th></tr>
       <tr><td>Openness &amp; transparency (APP 1)</td><td>This published policy states exactly what is collected (enquiry emails only) and why (quotes, bookings).</td></tr>
       <tr><td>Data minimisation (APP 3)</td><td>Collection limited to what a quote needs: name, contact, shoot location/scope. No marketing lists, no profiling.</td></tr>
-      <tr><td>Purpose limitation (APP 6)</td><td>Enquiry data is used only for the enquiry — never sold, shared or repurposed; retained for the quote-follow-up period, then deleted.</td></tr>
+      <tr><td>Purpose limitation (APP 6)</td><td>Enquiry data is used only for the enquiry: never sold, shared or repurposed; retained for the quote-follow-up period, then deleted.</td></tr>
       <tr><td>Data residency (APP 8)</td><td>Static self-hosted site; no third-party data processors, no cross-border transfer of visitor data.</td></tr>
       <tr><td>No silent tracking</td><td>No analytics/cookie scripts exist in the committed site (verified by repository search). Adding any requires updating this policy first.</td></tr>
       <tr><td>Honest representation (ACS 2023)</td><td>Portfolio imagery represents real work; AI-assisted imagery, if ever used, is labelled as such.</td></tr>
@@ -97,8 +97,8 @@
   </section>
 
   <section>
-    <h2>Improvement trajectory these documents demonstrate</h2>
-    <p>The 2025-era ethics posture was a one-paragraph README disclaimer (<a href="projects/lm-pdf-editor.html">LM-PDF Editor</a>: "do not use this tool to create fake documents…"). The 2026 posture is operational governance: named frameworks (IDS/CARE/UNDRIP/AIATSIS/APPs), principle→feature control tables, data inventories, review cycles and complaint pathways. The trajectory — from <em>disclaiming</em> harm to <em>governing</em> data — is the Goal 1 evidence chain.</p>
+    <h2>Origin</h2>
+    <p class="small">Written as the Assessment 1 promise kept: "practise IDS policies for my existing projects" (Goal 1). The disclaimer-to-governance trajectory these documents mark is discussed in section 4 of the report.</p>
   </section>
 </main>
 

@@ -24,7 +24,7 @@
 <main>
   <p class="eyebrow"><span class="status live">live</span> &nbsp; Python · Selenium · Excel pipeline · GitHub Actions</p>
   <h1>Scanner-for-IBMA</h1>
-  <p class="claim">The autonomous workflow my learning plan asked for — built, then given a CI pipeline it now runs itself.</p>
+  <p class="claim">The autonomous workflow the plan asked for, carrying a CI pipeline that tests the product itself.</p>
 
   <div class="bench">
     <div class="m"><span class="n">5<small> min</small></span><span class="l">scheduled auto-save cycle</span></div>
@@ -55,7 +55,7 @@ main.py (customtkinter GUI) --5-min cycle--> day workbook .xlsx
    +-- recover.py: weekday .txt -> rebuilt .xlsx
                 |
    GitHub Actions CI: compileall -> import check -> smoke test -> lint</pre>
-    <p class="small">Data hygiene is structural, not promised: <code>.gitignore</code> blocks <code>*.txt</code>, <code>*.xlsx</code> and <code>/memory/</code>, so student and contact records can never reach the repository. Individuals travel as <code>ContactID-*</code> pseudonyms (APP 2 / APP 11).</p>
+    <p class="small">Data hygiene is enforced by configuration: <code>.gitignore</code> blocks <code>*.txt</code>, <code>*.xlsx</code> and <code>/memory/</code>, so student and contact records never reach a repository. Individuals travel as <code>ContactID-*</code> pseudonyms (APP 2, APP 11).</p>
   </section>
 
   <section>
@@ -65,19 +65,19 @@ main.py (customtkinter GUI) --5-min cycle--> day workbook .xlsx
 
   <section class="align">
     <h2>Learning-plan alignment</h2>
-    <p class="small">Goal 4 (autonomous scan→database workflow — the plan's own capstone, verbatim) · Goal 3 (Git, CI, tooling) · Goal 1 (governance artifact). <a href="../goals.html">Full mapping →</a></p>
+    <p class="small">Wiring: <a href="../goals.html#g4">goals page, Goal 4 and Goal 3</a>.</p>
   </section>
 
   <section>
     <h2>Evidence</h2>
-    <p class="small">This is a system built for an external organisation (IBMA). Internal code and databases are not published — the public-facing data flow, this policy, and the CI evidence below are the portfolio artifacts.</p>
+    <p class="small">Built for an external organisation (IBMA). Internal code and databases are not published. The data flow above, the linked policy, and the CI evidence below are the portfolio artifacts.</p>
     <figure style="margin:1rem 0 0;">
       <img src="../assets/media/ci-proof.png" alt="GitHub Actions page for Scanner-for-IBMA showing CI run #1 green in 16 seconds on commit 14c48d7 (pushed by Shayem1) on the main branch, plus a green Dependabot dependency-graph update" style="max-width:100%;border:1px solid var(--rule);">
-      <figcaption class="small">CI run #1 — green in 16 s on the first push (<code>14c48d7</code>, <code>main</code>). Checks: syntax compile, dependency imports, pipeline smoke test, lint report.</figcaption>
+      <figcaption class="small">CI run #1: green in 16 s on the first push (<code>14c48d7</code>, <code>main</code>). Checks: syntax compile, dependency imports, pipeline smoke test, lint report.</figcaption>
     </figure>
     <ul class="feat">
-      <li>Commits <code>2484726</code> (CI pipeline) and <code>14c48d7</code> (IDS policy) — hashes verifiable in the private repo on request</li>
-      <li><code>ci/smoke_test.py</code> drives the real txt→xlsx pipeline and asserts header + codes <code>A101/A202/A303</code> — demo fixture data only, no real records</li>
+      <li>Commits <code>2484726</code> (CI pipeline) and <code>14c48d7</code> (IDS policy); hashes verifiable in the private repo on request</li>
+      <li><code>ci/smoke_test.py</code> drives the real txt→xlsx pipeline and asserts header plus codes <code>A101/A202/A303</code> (demo fixture data only, no real records)</li>
       <li>Full policy text published on the <a href="../policies.html">policies page</a> of this portfolio (my own authorship — publishable even though the system belongs to the client organisation)</li>
     </ul>
     <blockquote style="border-left:3px solid var(--copper); margin:1rem 0 0; padding:.6rem 1rem; font-size:.9rem; color:var(--ink-2);">

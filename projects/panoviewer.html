@@ -24,7 +24,7 @@
 <main>
   <p class="eyebrow"><span class="status alpha">alpha</span> &nbsp; Python · Pillow · WebGL · Cloudflare Pages-ready</p>
   <h1>Panoviewer</h1>
-  <p class="claim">A local-first viewer for panoramas so large they break normal image pipelines — with the release discipline of a real project.</p>
+  <p class="claim">A local-first viewer for panoramas large enough to break normal image pipelines.</p>
 
   <div class="bench">
     <div class="m"><span class="n">50,956<small>×</small>25,478</span><span class="l">largest image tested (~1.3 GPixel)</span></div>
@@ -45,7 +45,7 @@
 
   <section>
     <h2>Why it counts as Goal 3 evidence</h2>
-    <p>This is the software-development-tools goal made visible: a <code>dev</code>/<code>main</code> branch split where <code>main</code> carries only what is needed to run and <code>dev</code> carries tests, plans and research tooling; semantic tags for both trees; MIT licence; <code>.gitattributes</code>/<code>.gitignore</code> hygiene; and a documented dependency policy (vendored viewer libs can be re-generated, not committed).</p>
+    <p>Repository practices: <code>dev</code> carries tests, plan docs and research tooling while <code>main</code> holds only the runnable subset; matching <code>v1.0.0-alpha</code> tags on both trees; MIT licence; <code>.gitattributes</code>/<code>.gitignore</code> hygiene; vendored viewer libraries can be re-generated rather than committed.</p>
     <pre class="arch">source panorama (1.3 GPixel)
    |  scripts/tile_pano.py  (Python tiler, 2 engines)
    v
@@ -54,15 +54,15 @@ webroot/ tile pyramid + static viewer  ->  Cloudflare Pages / python http.server
 
   <section class="align">
     <h2>Learning-plan alignment</h2>
-    <p class="small">Goal 3 (Git collaboration, releases, deployment) · feeds the <a href="https://github.com/Shayem1/Skyworksdomain">Skyworksdomain</a> portfolio pages. <a href="../goals.html">Full mapping →</a></p>
+    <p class="small">Wiring: <a href="../goals.html#g3">goals page, Goal 3</a>. The tiler output feeds the SkyWorks Domain client pages (private repository).</p>
   </section>
 
   <section>
     <h2>Evidence</h2>
     <ul class="feat">
-      <li><a href="https://github.com/Shayem1/Panorama_Viewer_2026">Public repository</a> — MIT licence; <code>dev</code> tree carries tests/plan docs, <code>main</code> the runnable subset</li>
+      <li><a href="https://github.com/Shayem1/Panorama_Viewer_2026">Public repository</a>: MIT licence; <code>dev</code> tree carries tests and plan docs, <code>main</code> the runnable subset</li>
       <li>Validation ships with the repo: <code>check_layout.py</code> (per-level tile file checks) and <code>smoke_serve.py</code> (boots the server and asserts key URLs return 200)</li>
-      <li>End-to-end verification recorded in the README: three sample sizes — rendering, first-paint from preview strip, zero failed tile requests, seam/pole continuity, phone touch + deep-link write-back</li>
+      <li>End-to-end verification recorded in the README, against three sample sizes: rendering, first-paint from preview strip, zero failed tile requests, seam/pole continuity, phone touch with deep-link write-back</li>
     </ul>
   </section>
 </main>
