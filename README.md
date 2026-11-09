@@ -18,7 +18,7 @@ Static site: plain HTML/CSS, **no build step**. Live at https://shayem1.github.i
 | PF9 / PF11 | *(retired items, numbers not reused)* | — |
 | PF10 | Translator API (superseded by PF2 audio toolkits) | inventory only |
 | PF11 | extraction pipeline (file routing tool) | inventory only |
-| PF12 | Discord bot (agent surface) | inventory only |
+| PF12 | Discord bot (agent surface) | live page: `projects/discord-bot.html` |
 | PF13 | This portfolio site | live |
 
 Items can be added freely; numbering is stable once assigned.
