@@ -34,12 +34,12 @@
 
   <section>
     <h2>What it does</h2>
-    <ul class="feat">
-      <li>Reprojects a giant equirectangular photo into a cube-face tile pyramid (pure Pillow engine; optional fast Hugin/nona engine) so browsers stream only what is visible.</li>
-      <li>Static output under <code>webroot/</code> — deployable to Cloudflare Pages or any static host as-is, no build step.</li>
-      <li>Every view is a shareable deep link: yaw/pitch/fov live in the address bar.</li>
-      <li>Works on desktop and phones (WebGL).</li>
-    </ul>
+    <div class="feat-list">
+      <details class="feat"><summary>Tile-pyramid reprojection</summary><p class="body">Reprojects a giant equirectangular photo into a cube-face tile pyramid (pure Pillow engine; optional fast Hugin/nona engine) so browsers stream only what is visible.</p></details>
+      <details class="feat"><summary>Static, host-agnostic output</summary><p class="body">Static output under <code>webroot/</code>: deployable to Cloudflare Pages or any static host as-is, no build step.</p></details>
+      <details class="feat"><summary>Shareable deep-linked views</summary><p class="body">Every view is a shareable deep link: yaw/pitch/fov live in the address bar.</p></details>
+      <details class="feat"><summary>Desktop and mobile (WebGL)</summary><p class="body">Works on desktop and phones.</p></details>
+    </div>
   </section>
 
   <section>

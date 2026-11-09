@@ -34,13 +34,13 @@
 
   <section>
     <h2>What it does</h2>
-    <ul class="feat">
-      <li>Scans contact and attendance data from spreadsheets and authenticated web systems into day-keyed, ID-indexed workbooks (e.g. <span class="small">Friday 14-08-2026.xlsx</span>).</li>
-      <li>Re-saves on a fixed 5-minute cycle, so the workbook is a live register, not a snapshot.</li>
-      <li>Crash-safe by design: on restart it merges into the existing workbook instead of overwriting — no data lost when the machine or session dies mid-run.</li>
-      <li><code>recover.py</code> rebuilds any workbook from its weekday text exports — verified end-to-end by the CI smoke test.</li>
-      <li>Runs fullscreen as an operator dashboard with live ID entry.</li>
-    </ul>
+    <div class="feat-list">
+      <details class="feat"><summary>Scans web systems and spreadsheets into workbooks</summary><p class="body">Contact and attendance data from spreadsheets and authenticated web systems becomes day-keyed, ID-indexed workbooks (e.g. <span class="small">Friday 14-08-2026.xlsx</span>).</p></details>
+      <details class="feat"><summary>5-minute auto-save cycle</summary><p class="body">Re-saves on a fixed 5-minute cycle, so the workbook is a live register, not a snapshot.</p></details>
+      <details class="feat"><summary>Crash-safe merges, never overwrite</summary><p class="body">On restart it merges into the existing workbook instead of overwriting; no data lost when the machine or session dies mid-run.</p></details>
+      <details class="feat"><summary>Workbook recovery from raw exports</summary><p class="body"><code>recover.py</code> rebuilds any workbook from its weekday text exports; verified end-to-end by the CI smoke test.</p></details>
+      <details class="feat"><summary>Fullscreen operator dashboard</summary><p class="body">Runs fullscreen with live ID entry.</p></details>
+    </div>
   </section>
 
   <section>
