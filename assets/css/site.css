@@ -82,6 +82,19 @@ p { margin: .55rem 0; max-width: 56ch; }
 .stacktags { display: flex; flex-wrap: wrap; gap: .45rem; margin: .55rem 0 0; }
 .stacktags .tag { cursor: default; }
 
+/* ---------- filter bar ---------- */
+.filters { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
+.fbtn {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em;
+  padding: .3rem .8rem; border: 1px solid var(--rule); border-radius: 999px;
+  background: var(--paper-2); color: var(--ink-2); cursor: pointer;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.fbtn:hover { border-color: var(--copper); color: var(--copper); }
+.fbtn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.card.dim { opacity: .55; }
+.card.dim:hover { opacity: 1; }
+
 /* ---------- cards / tiles ---------- */
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.05rem; margin-top: 1.2rem; }
 .card {
