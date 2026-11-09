@@ -15,7 +15,6 @@
   <a class="brand" href="../index.html">Shayem Quazi</a>
   <nav>
     <a href="index.html">projects</a>
-    <a href="../goals.html">goals &amp; evidence</a>
     <a href="../policies.html">policies</a>
     <a href="../about.html">about</a>
   </nav>
@@ -24,7 +23,7 @@
 <main>
   <p class="eyebrow"><span class="status alpha">alpha</span> &nbsp; Python · C++/HIP · ONNX · MCP · AMD gfx1201</p>
   <h1>Strata agent stack</h1>
-  <p class="claim">The component inventory behind Goal 4: what was built on this machine, how each piece was measured, and how the pieces join. The plan-to-outcome narrative is in section 2 of the report.</p>
+  <p class="claim">Component inventory for a local-first agent stack: what was built on this machine, how each piece was measured, and how the pieces join.</p>
 
   <div class="bench">
     <div class="m"><span class="n">0.065<small> RTF</small></span><span class="l">whisper base: 11 s audio → 0.7 s</span></div>
@@ -50,8 +49,8 @@
       <li><strong>Video grounding</strong> — motion-adaptive keyframes (tile-diff thresholds with codec-noise suppression, NMS, coverage skeleton) joined to diarization turns by timestamp, so a frame carries <em>who was speaking when</em>.</li>
       <li><strong>Agent surface</strong> — every capability exposed through MCP tool doors and consumed daily by an OpenCode agent workflow (including the one that helped assemble this portfolio).</li>
     </ul>
-    <p><strong>Runs with or without an agent in the loop.</strong> Whisper transcribes and translates live (any language to English); diarization separates speakers live; joined, they output multilingual multi-speaker transcripts to any downstream system. This pipeline superseded the containerised translation service that first answered the plan's Docker line.</p>
-    <p><strong>Target silicon:</strong> enterprise desktops, the class client workplaces actually own (10-20 core AVX-class CPUs, weak display GPUs). Why that choice: report section 4.</p>
+    <p><strong>Runs with or without an agent in the loop.</strong> Whisper transcribes and translates live (any language to English); diarization separates speakers live; joined, they output multilingual multi-speaker transcripts to any downstream system. This pipeline superseded an earlier containerised translation service (archived as PF10).</p>
+    <p><strong>Target silicon:</strong> enterprise desktops, the class of machine client workplaces actually own (10-20 core AVX-class CPUs, weak display GPUs).</p>
   </section>
 
   <section>
@@ -66,21 +65,17 @@ image store (pHash dedupe -> embedding ranking)  ->  "find me every shot of X, a
 Strata /v1 doors  <-  any OpenAI-compatible client or MCP door</pre>
   </section>
 
-  <section class="align">
-    <h2>Learning-plan alignment</h2>
-    <p class="small">Goal 4 (custom LLMs, optimized databases, autonomous systems — plan lines 57–83) · Goal 1 (data never leaves the machine; policies govern the stores). <a href="../goals.html">Full mapping →</a></p>
-  </section>
 
   <section>
     <h2>Evidence</h2>
     <ul class="feat">
-      <li>Build logs, benchmarks and calibration notes live in this machine's engineering docs (<code>D:\Strata\docs\DETAILS.md</code>, <code>D:\Strata\image_search\NOTES.md</code>) — available to the marker as exports.</li>
+      <li>Build logs, benchmarks and calibration notes live in this machine's engineering docs (<code>D:\Strata\docs\DETAILS.md</code>, <code>D:\Strata\image_search\NOTES.md</code>); exports shared on request.</li>
       <li>Test suites: image store 16/16, video reader 7/7, diarization chain checks, 27 endpoint tests for the audio door.</li>
       <li>Privacy stance: architecture is published; model weights, configs and stored assets stay on the local machine.</li>
     </ul>
   </section>
 </main>
 
-<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+<footer class="site-foot">© 2026 Shayem Quazi · portfolio · built local-first, deployed static.</footer>
 </body>
 </html>

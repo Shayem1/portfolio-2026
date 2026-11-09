@@ -7,4 +7,4 @@ Demo slots to record (scrub rules: fixture/demo data only — no real student or
 - `scanner-demo.gif` — GUI session entering IDs + auto-save tick (fixture data)
 - `panoviewer-demo.mp4` — pan/zoom a tiled panorama, deep-link URL visible
 - `strata-bench-clip.png` — terminal: diarization run + keyframe selection timing
-- `ibma-app-*.png` — grading flow screenshot (test accounts only; add when marker-access framing is decided)
+- `ibma-app-*.png` — grading flow screenshot (test accounts only; add when client approval is confirmed)

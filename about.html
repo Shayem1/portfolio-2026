@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Shayem Quazi</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Public+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="canonical" href="https://shayem1.github.io/portfolio-2026/about.html">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
@@ -16,29 +16,31 @@
   <a class="brand" href="index.html">Shayem Quazi</a>
   <nav>
     <a href="projects/index.html">projects</a>
-    <a href="goals.html">goals &amp; evidence</a>
     <a href="policies.html">policies</a>
     <a href="about.html" aria-current="page">about</a>
   </nav>
 </header>
 
 <main>
-  <p class="eyebrow">Shayem Quazi · Sydney · B. Cybersecurity (C10471)</p>
-  <h1>Skills, rated before and after</h1>
-  <p class="claim">Assessment 1 rated every skill against SFIA. Same table after the builds: self-rated, each delta tied to an artifact on this site.</p>
+  <p class="eyebrow">Shayem Quazi · Sydney · B. Cybersecurity</p>
+  <h1>Skills &amp; experience</h1>
+  <p class="claim">Self-assessed, every entry tied to an artifact on this site. Levels follow SFIA naming, phrased the way a profile would.</p>
 
   <table class="ledger">
-    <tr><th>Skill (from the Assmt 1 audit)</th><th>Then</th><th>Now</th><th>What moved it</th></tr>
-    <tr><td>Understanding of ethical principles, esp. Indigenous communities</td><td>SFIA 3</td><td>3 → <em>authoring, not just applying</em></td><td>Authored two IDS/ethics policies adopted by live projects; IDS-based essay graded (marker comment on Indigenous linkage)</td></tr>
-    <tr><td>Foundational cybersecurity</td><td>SFIA 4</td><td>4 (consolidated)</td><td>Two completed subjects; production auth design (JWT + Azure AD app-only) in IBMA app</td></tr>
-    <tr><td>Software development tools</td><td>SFIA 4</td><td>4 → 5 target</td><td>Authored a GitHub Actions pipeline (first run green), branch/tag release discipline, static deploys</td></tr>
-    <tr><td>Azure / Intune / endpoint management</td><td>SFIA 2</td><td>2 → 3</td><td>Azure AD <em>app-only</em> (least-privilege) credential designed into a live multi-tenant app: scope selection, credential handling, and JWT session design for the IBMA assessment system</td></tr>
-    <tr><td>Creating and using APIs · agents · LLM workflows · "n8n or equivalent"</td><td><strong>SFIA 1</strong> ("able to just follow directions")</td><td><strong>3</strong></td><td>The semester's biggest delta: authored MCP tool doors, a local LLM serving stack and the CPU media toolkits, each with tests and benchmarks (<a href="projects/strata-agent-stack.html">Strata page</a>)</td></tr>
-    <tr><td>Designing databases</td><td>SFIA 1</td><td>2</td><td>SQLite asset store with dedupe schema and calibrated similarity tiers; formal schema design is the stated next goal (post Database Fundamentals)</td></tr>
-    <tr><td>Code &amp; workflow optimisation</td><td>SFIA 4</td><td>4+</td><td>Measured pipeline work: cache benches (−9.6…−25.4 %), RTF-benchmarked CPU audio tools replacing brute-force passes</td></tr>
-    <tr><td>Hardware knowledge · terminals</td><td>SFIA 3</td><td>3+</td><td>GPU-inference platform builds (HIP gfx1201), Zen-4 SIMD audio builds, cross-language diarization model selection</td></tr>
+    <tr><th>Skill</th><th>Level</th><th>Where to see it</th></tr>
+    <tr><td>AI agent infrastructure (MCP tool doors, agent pipelines, orchestration)</td><td>Advanced</td><td><a href="projects/strata-agent-stack.html">PF2 Strata stack</a>, <a href="projects/scanner-for-ibma.html">PF1 Scanner</a></td></tr>
+    <tr><td>LLM deployment &amp; inference optimisation (quantised serving, cache tuning, benchmarking)</td><td>Advanced</td><td>PF2 bench measurements and test suites</td></tr>
+    <tr><td>Speech &amp; media pipelines (live transcription/translation, diarization, image store, video grounding)</td><td>Advanced</td><td>PF2 components; PF10 shows the supersession trail</td></tr>
+    <tr><td>Python &amp; data pipelines (automation, spreadsheets at scale, crash-safe design)</td><td>Advanced</td><td><a href="projects/scanner-for-ibma.html">PF1 Scanner</a> + its CI pipeline</td></tr>
+    <tr><td>CI/CD &amp; Git practice (GitHub Actions, branch/tag release discipline, in-repo validation)</td><td>Working</td><td>PF1 pipeline (green on first push); <a href="https://github.com/Shayem1/Panorama_Viewer_2026">PF4 public repo</a></td></tr>
+    <tr><td>Containerised services (Dockerfile, compose)</td><td>Working</td><td>PF10 (archived); containerising the PF2 stack is the next target</td></tr>
+    <tr><td>Cloud &amp; static deployment (Netlify, Cloudflare Pages, wrangler)</td><td>Working</td><td><a href="projects/ibma-assessment.html">PF3</a>, PF9, this site</td></tr>
+    <tr><td>Web development (React + Vite, Node functions, static front-ends)</td><td>Working</td><td>PF3 architecture, <a href="projects/panoviewer.html">PF4</a>, PF5</td></tr>
+    <tr><td>Identity &amp; access in production (JWT, Azure AD app-only, least privilege)</td><td>Working</td><td>PF3 architecture diagram</td></tr>
+    <tr><td>Networking &amp; system diagnostics (fault-domain isolation, log forensics, reliability analysis)</td><td>Advanced</td><td><a href="projects/diagnostics.html">PF7 field cases</a></td></tr>
+    <tr><td>Data governance &amp; ethics (Indigenous Data Sovereignty, CARE principles, Privacy Act APPs, policy authorship)</td><td>Working, applied</td><td><a href="policies.html">PF8 policy texts</a></td></tr>
   </table>
-  <p class="small">"Now" ratings are self-assessments with cited evidence. SFIA's own convention is that a level is confirmed by someone else's review; these are offered for the marker's challenge.</p>
+  <p class="small">Levels are self-assessments with cited evidence. SFIA convention holds that a level is confirmed by someone else's review; these are offered for challenge, not assertion.</p>
 
   <section>
     <h2>How this portfolio is built</h2>
@@ -47,10 +49,10 @@
 
   <section>
     <h2>Contact</h2>
-    <p>GitHub: <a href="https://github.com/Shayem1">github.com/Shayem1</a> · for assessment questions: via UTS Canvas (43030).</p>
+    <p>GitHub: <a href="https://github.com/Shayem1">github.com/Shayem1</a></p>
   </section>
 </main>
 
-<footer class="site-foot">© 2026 Shayem Quazi · 43030 Professional Practices portfolio (student 25856699) · built local-first, deployed static.</footer>
+<footer class="site-foot">© 2026 Shayem Quazi · portfolio · built local-first, deployed static.</footer>
 </body>
 </html>
