@@ -15,7 +15,7 @@ Static site: plain HTML/CSS, **no build step**. Live at https://shayem1.github.i
 | PF6 | LM-PDF Editor (retired 2026, documented) | `projects/lm-pdf-editor.html` |
 | PF7 | Network & system diagnostics fieldwork | `projects/diagnostics.html` |
 | PF8 | IDS & ethics policies (governance documents) | `policies.html` |
-| PF9 | *(retired item, number not reused)* | — |
+| PF9 / PF11 | *(retired items, numbers not reused)* | — |
 | PF10 | Translator API (superseded by PF2 audio toolkits) | inventory only |
 | PF11 | extraction pipeline (file routing tool) | inventory only |
 | PF12 | Discord bot (agent surface) | inventory only |
